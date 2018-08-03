@@ -14,15 +14,52 @@
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.App-title-top {
+  font-size: 1.5em; 
+  animation-duration: 3s;
+  animation-name: slidein-right;
+} 
+
+.App-title-middle {
+  font-size: 1.5em; 
+  animation-delay: 3s;
+  animation-duration: 3s;
+  visibility: hidden;
+  animation-name: slidein-left;
+} 
+
+.App-title-bottom {
+  font-size: 1.5em; 
+  animation-delay: 5s;
+  animation-duration: 4s;
+  visibility: hidden;
+  animation-name: slidein-right;
+} 
+
+@keyframes slidein-right {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+    visibility: visible;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+    visibility: visible;
+  }
 }
 
-.App-intro {
-  font-size: large;
-}
+@keyframes slidein-left {
+  from {
+    margin-right: 100%;
+    width: 0%; 
+    visibility: visible;
+  }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to {
+    margin-right: 0%;
+    width: 100%;
+    visibility: visible;
+  }
 }
