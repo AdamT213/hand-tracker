@@ -7,7 +7,7 @@ import {
   Redirect,
   withRouter
 } from "react-router-dom";
-import { saveHand } from '../Actions/handActions'; 
+import { saveHand } from '../../Actions/handActions'; 
 
 export class addHand extends Component {
   
