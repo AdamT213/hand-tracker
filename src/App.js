@@ -4,7 +4,8 @@ import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Home from './Components/Home'
 import Navbar from './Components/Navbar';
-import showSession from './Components/showSession';
+import showSession from './Components/showSession'; 
+import sessionsList from './Components/sessionsList'
 
 export const history = createBrowserHistory();
 
@@ -22,7 +23,8 @@ class App extends Component {
           <div>
           <Navbar/>
           <Route exact path="/" component= {Home} />  
-          <Route path = "/session/:id" component= {showSession} />
+          <Route path = "/session/:id" component= {showSession} /> 
+          <Route path = "/sessions/index" component= {sessionsList} /> 
           </div>
           </Switch> 
         </Router>

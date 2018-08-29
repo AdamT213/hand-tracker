@@ -10,12 +10,10 @@ export class showSession extends Component {
 
       return ( 
         <div> 
-        <Session Status= {this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables}
-         /> 
-         <div>
-         <addTable />
+        <Session Status= {this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} 
+         />
+         <addTable /> 
          </div>
-        </div> 
       ); 
     }
   }

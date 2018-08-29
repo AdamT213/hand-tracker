@@ -11,11 +11,13 @@ export class Session extends Component {
 
      return (
       <div className= "Session"> 
-        <h3>{this.props.id}</h3> 
+        <h3>id: {this.props.id}</h3> 
         <h3>Minutes: {this.props.duration}</h3> 
         <h3>Status:<div>{this.props.status === 1 ? 'Up'  : 'Down'}</div></h3> 
         <h3>Amount: {this.props.amount}</h3><br /> 
+        <ul>
         {tables}
+        </ul>
       </div>
       )
     }
