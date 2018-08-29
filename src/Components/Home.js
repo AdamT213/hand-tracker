@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,25 +8,32 @@ import {
   Switch,
   withRouter
 } from "react-router-dom"; 
-import addHand from './Forms/addHand'
+import addHand from './Forms/addHand' 
+import { startSession } from '../Actions/sessionActions'
 
 export class Home extends Component { 
+
+  handleClick = event => {  
+    this.props.startSession() 
+  }
      
-  render() { 
+  render() {  
+
       return ( 
         <div> 
           <Router> 
+          <Switch> 
           <div>
-          <NavLink to= '/hands/new'> Add a new hand </NavLink> 
-          <Route path= '/hands/new' component={addHand}/> 
+          <button className= "navButton" onClick={this.handleClick}>Start New Session</button> 
           <h4> Search For Hands By Category </h4> 
           <h4> Search For Sessions By Category </h4> 
           <h4> Search For Tables By Category </h4> 
-          </div> 
+          </div>
+          </Switch> 
           </Router>
         </div> 
       ); 
   }
 } 
 
-export default Home; 
+export default connect (null, { startSession })(Home); 
