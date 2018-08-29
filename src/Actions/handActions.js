@@ -16,7 +16,7 @@ export function saveHand(hand){
     }).then(responseJson => {   
       dispatch({type: 'SET_HAND', payload: responseJson}) 
     }).then(res => {  
-      let currenthand = getState().handsReducer.hand 
+      let currentSession = getState().sessionsReducer.session
       history.push(`/session/${currentSession.id}`)  
     })
   } 
