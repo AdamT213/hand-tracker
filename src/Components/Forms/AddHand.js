@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import { saveHand } from '../../Actions/handActions'; 
 
-export class addHand extends Component {
+export class AddHand extends Component {
   
   constructor(props) {
     super(props)
@@ -263,4 +263,4 @@ export class addHand extends Component {
       ); 
     }
   }
-export default connect(null, { saveHand })(addHand);
+export default connect(null, { saveHand })(AddHand);

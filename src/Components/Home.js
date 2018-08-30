@@ -8,7 +8,7 @@ import {
   Switch,
   withRouter
 } from "react-router-dom"; 
-import addHand from './Forms/addHand' 
+import AddHand from './Forms/AddHand' 
 import { startSession } from '../Actions/sessionActions' 
 import { getSessions } from '../Actions/sessionActions'
 

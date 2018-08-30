@@ -17,7 +17,7 @@ class sessionsList extends Component {
   render() {
 
     const sessions = this.props.sessions.map((sesh, index) => {
-      return <div className="small"><li><Session id={sesh.id} Status= {sesh.status} Minutes={sesh.duration} Amount= {sesh.amount} tables={sesh.tables}/><br /><button id={sesh.id} onClick={this.handleClick}>See Info For This Session</button></li><br /><br /></div>
+      return <div className="small"><li><Session id={sesh.id} Status= {sesh.status} Minutes={sesh.duration} Amount= {sesh.amount} tables={sesh.tables} key={index} /><br /><button id={sesh.id} onClick={this.handleClick}>See Info For This Session</button></li><br /><br /></div>
     });
 
     return (

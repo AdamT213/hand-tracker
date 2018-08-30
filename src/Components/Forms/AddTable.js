@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import { saveTable } from '../../Actions/tableActions'; 
 
-export class addTable extends Component {
+export class AddTable extends Component {
   
   constructor(props) {
     super(props)
@@ -29,8 +29,9 @@ export class addTable extends Component {
 
   handleOnSubmit = event => { 
     const table = Object.assign({}, this.state); 
+    table.session_id = this.props.session.id;
     event.preventDefault();
-    this.props.addTable(table);   
+    this.props.saveTable(table);   
     this.setState({
       buyin: '',
       capacity: '',
@@ -80,6 +81,11 @@ export class addTable extends Component {
                         />
                       </div>
                     </div>
+                    <div className="form-group">
+                      <div className="col-md-6 col-md-offset-4">
+                        <button type="submit" className="btn btn-default">Good Luck!</button>
+                      </div>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -89,4 +95,9 @@ export class addTable extends Component {
       ); 
     }
   }
-export default connect(null, { saveTable })(addTable);
+  
+  function mapStateToProps(state){ 
+    return {session: state.SessionsReducer.session}
+  } 
+
+export default connect(mapStateToProps, { saveTable })(AddTable);

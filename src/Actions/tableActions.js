@@ -16,8 +16,10 @@ export function saveTable(table){
     }).then(responseJson => {   
       dispatch({type: 'SET_TABLE', payload: responseJson}) 
     }).then(res => {  
-      let currentSession = getState().SessionsReducer.session
-      history.push(`/session/${currentSession.id}`)  
+      let currentSession = getState().SessionsReducer.session 
+      let currentTable = getState().TablesReducer.table
+      debugger;
+      history.push(`/session/${currentSession.id}/table/${currentTable.id}`)  
     })
   } 
 }  
