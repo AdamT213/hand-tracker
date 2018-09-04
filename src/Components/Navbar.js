@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { unmountComponentAtNode } from 'react-dom';
+import { getSessions } from '../Actions/sessionActions'
 
 class NavBar extends Component {
+
+  handleOnClick = event => { 
+    event.preventDefault; 
+    this.props.getSessions();
+  } 
 
   render() {
 
@@ -12,10 +17,11 @@ class NavBar extends Component {
         <NavLink className="link"
         to="/"
         exact
-      >Home</NavLink>
+      >Home</NavLink> 
+      <NavLink className="link" to= '/sessions/index' onClick={this.handleOnClick}>See your Past Sessions</NavLink>
       </div>
     );
   }
 };
 
-export default NavBar;
+export default connect (null, { getSessions})(NavBar); 

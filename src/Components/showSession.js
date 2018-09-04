@@ -8,14 +8,13 @@ import AddTable from './Forms/AddTable'
 export class showSession extends Component { 
      
   render() { 
-
       return ( 
         <div> 
-        <Session Id={this.props.session.id} Status= {this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} /> 
+        <Session Id={this.props.session.id} Status={this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} />
         <p>Add a New Table</p>
-         <AddTable />  
+         <AddTable />
          </div>
-      ); 
+      );
     }
   }
 

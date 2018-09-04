@@ -41,6 +41,11 @@ div {
 
 h4 { 
   font-size: .5 em;
+} 
+
+.navbar .link {
+  padding-left:10px;
+  padding-right:10px;
 }
 
 @keyframes slidein-right {

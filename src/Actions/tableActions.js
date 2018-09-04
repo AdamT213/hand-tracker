@@ -18,8 +18,26 @@ export function saveTable(table){
     }).then(res => {  
       let currentSession = getState().SessionsReducer.session 
       let currentTable = getState().TablesReducer.table
-      debugger;
       history.push(`/session/${currentSession.id}/table/${currentTable.id}`)  
+    })
+  } 
+}  
+
+export function setCurrentTable(table){ 
+  return function(dispatch, getState){ 
+    dispatch({type: 'GET_TABLE'})
+    return fetch(`https://hand-trackerapi.herokuapp.com/api/table/${table.id}`, {
+    method: 'GET',
+    })
+    .then(res => {
+      return res.json()
+    }).then(responseJson => {
+      dispatch({type: 'SET_TABLE', payload: responseJson})
+    }).then(res => { 
+      let currentSession = getState().SessionsReducer.session 
+      let currentTable = getState().TablesReducer.table 
+      debugger;
+      history.push(`/session/${currentSession.id}/table/${currentTable.id}`)
     })
   } 
 }  

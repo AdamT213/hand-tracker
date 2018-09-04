@@ -6,12 +6,15 @@ import Home from './Components/Home'
 import Navbar from './Components/Navbar';
 import showSession from './Components/showSession'; 
 import showTable from './Components/showTable';
-import sessionsList from './Components/sessionsList'
+import showHand from './Components/showHand';
+import sessionsList from './Components/sessionsList';
 
 export const history = createBrowserHistory();
 
 class App extends Component {
+
   render() {
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -23,12 +26,13 @@ class App extends Component {
           <Switch>
           <div>
           <Navbar/>
-          <Route exact path="/" component= {Home} />  
-          <Route path = "/session/:id" component= {showSession} /> 
-          <Route path = "/sessions/index" component= {sessionsList} /> 
-          <Route path = "/session/:id/table/:id" component= {showTable}/> 
+          <Route exact path= "/" component= {Home} />  
+          <Route path= "/session/:id" component= {showSession} /> 
+          <Route path= "/sessions/index" component= {sessionsList} /> 
+          <Route path= "/session/:id/table/:id" component= {showTable}/> 
+          <Route path= "/hand/:id" component= {showHand} />
           </div>
-          </Switch> 
+          </Switch>
         </Router>
       </div>
     );

@@ -1,13 +1,22 @@
 import React, { Component } from 'react'; 
-import Table from './Table'
+import { connect } from 'react-redux';
+import TableName from './TableName'
+import { setCurrentTable } from '../../Actions/tableActions';
 
 export class Session extends Component {  
+
+  handleClick = event => { 
+    event.preventDefault();
+    let table = {};
+    table.id= event.target.id;
+    this.props.setCurrentTable(table);   
+  } 
     
   render() { 
 
-    const tables =  this.props.tables !== null ? this.props.tables.map((tbl, index) => {
-      return <div><Table Id={tbl.id} capacity={tbl.capacity} size={tbl.size} buyin={tbl.buyin} key={index}/> 
-       </div>}) : null  
+    const tables = this.props.tables !== undefined ? this.props.tables.map((tbl, index) => {
+      return <div><TableName Id={tbl.id} capacity={tbl.capacity} size={tbl.size} buyin={tbl.buyin} key={index}/><button id={tbl.id} onClick={this.handleClick}>View Hands</button>
+       </div>}) : null
 
      return (
       <div className= "Session"> 
@@ -23,4 +32,4 @@ export class Session extends Component {
     }
   }
 
-export default Session;
+  export default connect(null, { setCurrentTable })(Session);
