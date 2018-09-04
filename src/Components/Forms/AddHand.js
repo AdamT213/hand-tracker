@@ -42,7 +42,7 @@ export class AddHand extends Component {
   handleOnSubmit = event => { 
     const hand = Object.assign({}, this.state); 
     event.preventDefault();
-    this.props.addHand(hand);   
+    this.props.saveHand(hand);   
     this.setState({
       position: '',
       preFlopRaise: '',
@@ -95,84 +95,12 @@ export class AddHand extends Component {
                       </div>
                     </div>
                     <div className="form-group">
-                      <label htmlFor="flop" className="col-md-4 control-label">What was the flop?</label>
-                      <div className="col-md-5">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="flop"
-                          value={this.state.flop}
-                          onChange={this.handleOnChange}
-                        />
-                      </div>
-                    </div>  
-                    <div className="form-group">
-                      <label htmlFor="turn" className="col-md-4 control-label">What was the turn?</label>
-                      <div className="col-md-5">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="turn"
-                          value={this.state.turn}
-                          onChange={this.handleOnChange}
-                        />
-                      </div>
-                    </div>  
-                    <div className="form-group">
-                      <label htmlFor="river" className="col-md-4 control-label">What was the river?</label>
-                      <div className="col-md-5">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="river"
-                          value={this.state.river}
-                          onChange={this.handleOnChange}
-                        />
-                      </div>
-                    </div>  
-                    <div className="form-group">
                       <label htmlFor="preFlopRaise" className="col-md-4 control-label">Preflop Raise</label>
                       <div className="col-md-5">
                         <textarea
                           className="form-control"
                           name="preFlopRaise"
                           value={this.state.preFlopRaise}
-                          onChange={this.handleOnChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="flopBet" className="col-md-4 control-label">Flop Bet</label>
-                      <div className="col-md-5">
-                        <textarea
-                          className="form-control"
-                          type="text"
-                          name="flopBet"
-                          value={this.state.flopBet}
-                          onChange={this.handleOnChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="turnBet" className="col-md-4 control-label">Turn Bet</label>
-                      <div className="col-md-5">
-                        <textarea
-                          className="form-control"
-                          type="text"
-                          name="turnBet"
-                          value={this.state.turnBet}
-                          onChange={this.handleOnChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="riverBet" className="col-md-4 control-label">River Bet</label>
-                      <div className="col-md-5">
-                        <textarea
-                          className="form-control"
-                          type="text"
-                          name="riverBet"
-                          value={this.state.riverBet}
                           onChange={this.handleOnChange}
                         />
                       </div>
@@ -190,6 +118,30 @@ export class AddHand extends Component {
                       </div>
                     </div> 
                     <div className="form-group">
+                      <label htmlFor="flop" className="col-md-4 control-label">What was the flop?</label>
+                      <div className="col-md-5">
+                        <input
+                          className="form-control"
+                          type="text"
+                          name="flop"
+                          value={this.state.flop}
+                          onChange={this.handleOnChange}
+                        />
+                      </div>
+                    </div>  
+                    <div className="form-group">
+                      <label htmlFor="flopBet" className="col-md-4 control-label">Flop Bet</label>
+                      <div className="col-md-5">
+                        <textarea
+                          className="form-control"
+                          type="text"
+                          name="flopBet"
+                          value={this.state.flopBet}
+                          onChange={this.handleOnChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group">
                       <label htmlFor="playersToTurn" className="col-md-4 control-label">How many players saw the turn?</label>
                       <div className="col-md-5">
                         <input
@@ -202,6 +154,30 @@ export class AddHand extends Component {
                       </div>
                     </div> 
                     <div className="form-group">
+                      <label htmlFor="turn" className="col-md-4 control-label">What was the turn?</label>
+                      <div className="col-md-5">
+                        <input
+                          className="form-control"
+                          type="text"
+                          name="turn"
+                          value={this.state.turn}
+                          onChange={this.handleOnChange}
+                        />
+                      </div>
+                    </div>  
+                    <div className="form-group">
+                      <label htmlFor="turnBet" className="col-md-4 control-label">Turn Bet</label>
+                      <div className="col-md-5">
+                        <textarea
+                          className="form-control"
+                          type="text"
+                          name="turnBet"
+                          value={this.state.turnBet}
+                          onChange={this.handleOnChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group">
                       <label htmlFor="playersToRiver" className="col-md-4 control-label">How many players saw the river?</label>
                       <div className="col-md-5">
                         <input
@@ -213,6 +189,30 @@ export class AddHand extends Component {
                         />
                       </div>
                     </div>  
+                    <div className="form-group">
+                      <label htmlFor="river" className="col-md-4 control-label">What was the river?</label>
+                      <div className="col-md-5">
+                        <input
+                          className="form-control"
+                          type="text"
+                          name="river"
+                          value={this.state.river}
+                          onChange={this.handleOnChange}
+                        />
+                      </div>
+                    </div>  
+                    <div className="form-group">
+                      <label htmlFor="riverBet" className="col-md-4 control-label">River Bet</label>
+                      <div className="col-md-5">
+                        <textarea
+                          className="form-control"
+                          type="text"
+                          name="riverBet"
+                          value={this.state.riverBet}
+                          onChange={this.handleOnChange}
+                        />
+                      </div>
+                    </div>
                     <div className="form-group">
                       <label htmlFor="playersToShowdown" className="col-md-4 control-label">How many players went to a showdown?</label>
                       <div className="col-md-5">
