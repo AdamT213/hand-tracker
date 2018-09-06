@@ -1,34 +1,34 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Hand from './Hand';
+import HandName from './HandName';
 import { setCurrentHand } from '../../Actions/handActions';
 
-export class Table extends Component {  
+export class Table extends Component {
 
-  handleClick = event => { 
+  handleClick = event => {
     event.preventDefault();
     let hand = {};
     hand.id= event.target.id;
     this.props.setCurrenthand(hand);   
   } 
     
-  render() { 
+  render() {
 
     const hands = this.props.hands !== undefined ? this.props.hands.map((hand, index) => {
-      return <div><Hand Id={hand.id} key={index}/> <button id={hand.id} onClick={this.handleClick}>View Hand Details</button></div>}) : null
+      return <div><HandName Id={hand.id} key={index}/><button id={hand.id} onClick={this.handleClick}>View Hand Details</button></div>}) : null
     
-      return (   
+      return ( 
         <div className= "Table"> 
           <h3>Id: {this.props.id}</h3>
-          <h3>Buy-in: {this.props.buyin}</h3>
-          <h3>Capacity:<div> {this.props.capacity}</div></h3>
-          <h3>Size: {this.props.size}</h3>
+          <h3>buyin: {this.props.buyin}</h3>
+          <h3>capacity:<div> {this.props.capacity}</div></h3>
+          <h3>size: {this.props.size}</h3>
           <ul>
           {hands}
         </ul>
         </div>
       )
-    }
+     }
   }
 
   export default connect(null, { setCurrentHand })(Table);

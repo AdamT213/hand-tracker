@@ -40,8 +40,9 @@ export class AddHand extends Component {
   }
 
   handleOnSubmit = event => { 
-    const hand = Object.assign({}, this.state); 
     event.preventDefault();
+    const hand = Object.assign({}, this.state); 
+    hand.table_id = this.props.table.id
     this.props.saveHand(hand);   
     this.setState({
       position: '',
@@ -263,4 +264,9 @@ export class AddHand extends Component {
       ); 
     }
   }
-export default connect(null, { saveHand })(AddHand);
+
+  function mapStateToProps(state){ 
+    return {table: state.TablesReducer.table}
+  } 
+
+export default connect(mapStateToProps, { saveHand })(AddHand);

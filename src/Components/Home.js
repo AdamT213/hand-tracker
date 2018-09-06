@@ -10,17 +10,12 @@ import {
 } from "react-router-dom"; 
 import AddHand from './Forms/AddHand' 
 import { startSession } from '../Actions/sessionActions' 
-import { getSessions } from '../Actions/sessionActions'
+
 
 export class Home extends Component { 
 
   handleClick = event => {  
     this.props.startSession() 
-  } 
-
-  handleOnClick = event => { 
-    event.preventDefault; 
-    this.props.getSessions();
   } 
      
   render() {  
@@ -42,4 +37,4 @@ export class Home extends Component {
   }
 } 
 
-export default connect (null, { startSession, getSessions })(Home); 
+export default connect (null, { startSession})(Home); 

@@ -38,8 +38,8 @@ export function getSessions() {
   }
 }
 
-export function setCurrentSession(session){ 
-  return function(dispatch, getState){ 
+export function setCurrentSession(session){
+  return function(dispatch, getState){
     dispatch({type: 'GET_SESSION'})
     return fetch(`https://hand-trackerapi.herokuapp.com/api/session/${session.id}`, {
     method: 'GET',
@@ -48,9 +48,9 @@ export function setCurrentSession(session){
       return res.json()
     }).then(responseJson => {
       dispatch({type: 'SET_SESSION_WITH_TABLES', payload: responseJson})
-    }).then(res => { 
+    }).then(res => {
       let currentSession = getState().SessionsReducer.session
-      history.push(`/session/${currentSession.id}`)  
+      history.push(`/session/${currentSession.id}`)
     })
-  } 
-}  
+  }
+}

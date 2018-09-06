@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; 
 
-export class TableName extends Component {  
+export class SessionName extends Component {  
 
   //shows just the basic info for a session that should be seen from the index page
     

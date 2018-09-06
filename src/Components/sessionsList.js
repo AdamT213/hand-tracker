@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import SessionName from './Presentational/Session';
+import SessionName from './Presentational/SessionName';
 import { setCurrentSession } from '../Actions/sessionActions'
 
 class sessionsList extends Component { 
@@ -16,7 +16,7 @@ class sessionsList extends Component {
   render() {
 
     const sessions = this.props.sessions.map((sesh, index) => {
-      return <div className="small"><li><SessionName id={sesh.id} Status= {sesh.status} Minutes={sesh.duration} Amount= {sesh.amount} key={index} /><br /><button id={sesh.id} onClick={this.handleClick}>See Info For This Session</button></li><br /><br /></div>
+      return <div className="small"><li><SessionName Id={sesh.id} Status= {sesh.status} Minutes={sesh.duration} Amount= {sesh.amount} key={index} /><br /><button id={sesh.id} onClick={this.handleClick}>See Info For This Session</button></li><br /><br /></div>
     });
 
     return (

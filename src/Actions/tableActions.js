@@ -36,8 +36,7 @@ export function setCurrentTable(table){
     }).then(res => { 
       let currentSession = getState().SessionsReducer.session 
       let currentTable = getState().TablesReducer.table 
-      debugger;
       history.push(`/session/${currentSession.id}/table/${currentTable.id}`)
     })
-  } 
+  }
 }  

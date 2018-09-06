@@ -1,6 +1,8 @@
 import React, { Component } from 'react'; 
 
 export class HandName extends Component {  
+
+  //Shows just the basic info for a hand that should be seen from the index page
     
   render() { 
     
