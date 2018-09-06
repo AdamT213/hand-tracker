@@ -14,7 +14,7 @@ export class Session extends Component {
     
   render() { 
 
-    const tables = this.props.tables !== undefined ? this.props.tables.map((tbl, index) => {
+    const tables = this.props.tables != undefined ? this.props.tables.map((tbl, index) => {
       return <div><TableName Id={tbl.id} capacity={tbl.capacity} size={tbl.size} buyin={tbl.buyin} key={index}/><button id={tbl.id} onClick={this.handleClick}>View Hands</button>
        </div>}) : null
 

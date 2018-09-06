@@ -14,8 +14,9 @@ export class Table extends Component {
     
   render() {
 
-    const hands = this.props.hands !== undefined ? this.props.hands.map((hand, index) => {
-      return <div><HandName Id={hand.id} key={index}/><button id={hand.id} onClick={this.handleClick}>View Hand Details</button></div>}) : null
+    const hands = this.props.hands != undefined ? this.props.hands.map((hand, index) => { 
+      debugger;
+      return <div><HandName Id={hand.id} potSize={hand.potSize} status={hand.status === true ? "won" : "lost"} key={index}/><button id={hand.id} onClick={this.handleClick}>View Hand Details</button></div>}) : null
     
       return ( 
         <div className= "Table"> 

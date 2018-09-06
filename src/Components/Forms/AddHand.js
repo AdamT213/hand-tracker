@@ -267,6 +267,6 @@ export class AddHand extends Component {
 
   function mapStateToProps(state){ 
     return {table: state.TablesReducer.table}
-  } 
+  };
 
 export default connect(mapStateToProps, { saveHand })(AddHand);

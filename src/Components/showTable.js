@@ -7,20 +7,20 @@ import AddHand from './Forms/AddHand'
 
 export class showTable extends Component { 
      
-  render() { 
-
-      return ( 
+  render() {
+      return (
         <div> 
         <Table id={this.props.table.id} buyin= {this.props.table.buyin} capacity={this.props.table.capacity} size={this.props.table.size} hands={this.props.table.hands} />
         <p>Add a New Hand</p>
          <AddHand />
          </div>
-      ); 
+      );
     }
   }
 
 function mapStateToProps(state){ 
+  debugger;
   return {table: state.TablesReducer.table}
 }
 
-export default connect(mapStateToProps, null) (showTable); 
+export default connect(mapStateToProps, null) (showTable);

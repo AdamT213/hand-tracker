@@ -10,18 +10,18 @@ export function saveTable(table){
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(table)}) 
-    .then(res => { 
+    body: JSON.stringify(table)})
+    .then(res => {
       return res.json()
-    }).then(responseJson => {   
-      dispatch({type: 'SET_TABLE', payload: responseJson}) 
-    }).then(res => {  
+    }).then(responseJson => {
+      dispatch({type: 'SET_TABLE_AFTER_CREATION', payload: responseJson})
+    }).then(res => {
       let currentSession = getState().SessionsReducer.session 
       let currentTable = getState().TablesReducer.table
-      history.push(`/session/${currentSession.id}/table/${currentTable.id}`)  
+      history.push(`/session/${currentSession.id}/table/${currentTable.id}`) 
     })
-  } 
-}  
+  }
+}
 
 export function setCurrentTable(table){ 
   return function(dispatch, getState){ 
