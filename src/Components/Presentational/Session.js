@@ -19,11 +19,11 @@ export class Session extends Component {
        </div>}) : null
 
      return (
-      <div className= "Session"> 
-        <h3>Id: {this.props.id}</h3> 
-        <h3>Minutes: {this.props.duration}</h3> 
-        <h3>Status:<div>{this.props.status === 1 ? 'Up'  : 'Down'}</div></h3> 
-        <h3>Amount: {this.props.amount}</h3><br /> 
+      <div className= "Session">
+        <h3>Id: {this.props.Id}</h3>
+        <h3>Minutes: {this.props.Minutes}</h3>
+        <h3>Status:<div>{this.props.Status === 1 ? 'Up'  : 'Down'}</div></h3>
+        <h3>Amount: {this.props.Amount}</h3><br />
         <ul>
         {tables}
         </ul>

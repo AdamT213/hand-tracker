@@ -9,7 +9,7 @@ export class Table extends Component {
     event.preventDefault();
     let hand = {};
     hand.id= event.target.id;
-    this.props.setCurrenthand(hand);   
+    this.props.setCurrentHand(hand);   
   } 
     
   render() {

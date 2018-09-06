@@ -8,6 +8,7 @@ import AddTable from './Forms/AddTable'
 export class showSession extends Component { 
      
   render() { 
+    debugger;
       return ( 
         <div> 
         <Session Id={this.props.session.id} Status={this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} />
@@ -18,7 +19,7 @@ export class showSession extends Component {
     }
   }
 
-function mapStateToProps(state){ 
+function mapStateToProps(state){
   return {session: state.SessionsReducer.session}
 }
 

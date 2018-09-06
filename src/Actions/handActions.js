@@ -14,7 +14,7 @@ export function saveHand(hand){
   .then(res => {
       return res.json()
     }).then(responseJson => { 
-      dispatch({type: 'SET_HAND', payload: responseJson}) 
+      dispatch({type: 'SET_HAND_AFTER_CREATION', payload: responseJson}) 
     }).then(res => {
       let currentSession = getState().SessionsReducer.session 
       let currentTable = getState().TablesReducer.table
