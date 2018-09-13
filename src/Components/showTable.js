@@ -19,7 +19,6 @@ export class showTable extends Component {
   }
 
 function mapStateToProps(state){ 
-  debugger;
   return {table: state.TablesReducer.table}
 }
 

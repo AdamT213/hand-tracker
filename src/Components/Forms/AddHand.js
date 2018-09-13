@@ -28,7 +28,8 @@ export class AddHand extends Component {
       holeCards: '',
       flop: '',
       turn: '',
-      river: ''
+      river: '',
+      tags: [],
     }
   }
 
@@ -41,9 +42,10 @@ export class AddHand extends Component {
 
   handleOnSubmit = event => { 
     event.preventDefault();
-    const hand = Object.assign({}, this.state); 
+    const hand = Object.assign({}, this.state.position, this.state.preFlopRaise, this.state.flopBet, this.state.turnBet, this.state.riverBet, this.state.playersToFlop, this.state.playersToTurn, this.state.playersToRiver, this.state.playersToShowdown, this.state.status, this.state.potSize, this.state.holeCards, this.state.flop, this.state.turn, this.state.river);  
     hand.table_id = this.props.table.id
-    this.props.saveHand(hand);   
+    const tags = this.state.tags.forEach(t => Object.assign({}, t));
+    this.props.saveHand(hand,tags);   
     this.setState({
       position: '',
       preFlopRaise: '',
@@ -59,7 +61,8 @@ export class AddHand extends Component {
       holeCards: '',
       flop: '',
       turn: '',
-      river: ''
+      river: '', 
+      tags: []
     });
   }
 
@@ -246,6 +249,18 @@ export class AddHand extends Component {
                           type="text"
                           name="potSize"
                           value={this.state.potSize}
+                          onChange={this.handleOnChange}
+                        />
+                      </div>
+                    </div> 
+                    <div className="form-group">
+                      <label htmlFor="tags" className="col-md-4 control-label">How would you like to tag this hand?</label>
+                      <div className="col-md-5">
+                        <input
+                          className="form-control"
+                          type="text"
+                          name="tags"
+                          value={this.state.tags}
                           onChange={this.handleOnChange}
                         />
                       </div>

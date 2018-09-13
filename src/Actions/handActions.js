@@ -11,11 +11,22 @@ export function saveHand(hand){
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(hand)})
-  .then(res => {
+    .then(res => {
       return res.json()
     }).then(responseJson => { 
-      dispatch({type: 'SET_HAND_AFTER_CREATION', payload: responseJson}) 
+      dispatch({type: 'FIND_OR_CREATE_TAGS'}) 
+      return fetch('https://hand-trackerapi.herokuapp.com/api/tags', {
+      method: 'POST',
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(hand.tags)}) 
     }).then(res => {
+      return res.json()
+    }).then(responseJson => {
+      dispatch({type: 'SET_HAND_AFTER_CREATION', payload: responseJson}) 
+    }).then(res => { 
       let currentSession = getState().SessionsReducer.session 
       let currentTable = getState().TablesReducer.table
       history.push(`/session/${currentSession.id}/table/${currentTable.id}`)  
