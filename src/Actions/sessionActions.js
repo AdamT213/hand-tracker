@@ -13,7 +13,8 @@ export function startSession(){
     }) 
     .then(res => { 
       return res.json()
-    }).then(responseJson => {   
+    }).then(responseJson => {
+      debugger; 
       dispatch({type: 'SET_SESSION', payload: responseJson}) 
     }).then(res => {  
       let currentSession = getState().SessionsReducer.session 
@@ -66,7 +67,6 @@ export function endSession(session){
     },
     body: JSON.stringify(session)})
     .then(res => {
-      debugger;
       return res.json()
     }).then(responseJson => {
       dispatch({type: 'SET_SESSION_WITH_TABLES', payload: responseJson})
