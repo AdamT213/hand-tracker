@@ -27,9 +27,9 @@ class App extends Component {
           <div>
           <Navbar/>
           <Route exact path= "/" component= {Home} />  
-          <Route path= "/session/:id" component= {showSession} /> 
+          <Route exact path= "/session/:id" component= {showSession} /> 
           <Route path= "/sessions/index" component= {sessionsList} /> 
-          <Route path= "/session/:id/table/:id" component= {showTable}/> 
+          <Route exact path= "/session/:id/table/:id" component= {showTable}/> 
           <Route path= "/hand/:id" component= {showHand} />
           </div>
           </Switch>

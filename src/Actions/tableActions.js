@@ -36,10 +36,10 @@ export function setCurrentTable(table){
     }).then(res => { 
       let currentSession = getState().SessionsReducer.session 
       let currentTable = getState().TablesReducer.table 
-      history.push(`/session/${currentSession.id}/table/${currentTable.id}`)
+      history.replace(`/session/${currentSession.id}/table/${currentTable.id}`)
     })
   }
-}  
+}
 
 export function leaveTable(table){
   return function(dispatch, getState){
