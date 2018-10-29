@@ -34,6 +34,7 @@ export class showSession extends Component {
   }
 
 function mapStateToProps(state){
+  debugger;
   return {session: state.SessionsReducer.session}
 }
 

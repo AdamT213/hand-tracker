@@ -6,7 +6,7 @@ export function SessionsReducer(state = {session: null, sessions: []
       case 'SET_SESSIONS':  
         return {sessions: action.payload} 
       case 'SET_SESSION_WITH_TABLES': 
-        return {session: {id: action.payload.id, status: action.payload.status, duration: action.payload.duration, amount: action.payload.amount, tables: action.payload.tables}, sessions: state.sessions}
+        return {session: {id: action.payload.id, status: action.payload.status, duration: action.payload.duration, amount: action.payload.amount, isTermed: action.payload.isTermed, tables: action.payload.tables}, sessions: state.sessions}
       default:
        return state; 
   }
