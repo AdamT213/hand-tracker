@@ -24,6 +24,7 @@ export class Session extends Component {
         <h3>Minutes: {this.props.Minutes}</h3>
         <h3>Status:<div>{this.props.Status === 1 ? 'Up'  : 'Down'}</div></h3>
         <h3>Amount: {this.props.Amount}</h3><br />
+        <h3>Tables:</h3>
         <ul>
         {tables}
         </ul>

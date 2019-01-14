@@ -9,21 +9,22 @@ export class Table extends Component {
     event.preventDefault();
     let hand = {};
     hand.id= event.target.id;
-    this.props.setCurrentHand(hand);   
+    this.props.setCurrentHand(hand);
   } 
     
   render() {
 
-    const hands = this.props.hands != undefined ? this.props.hands.map((hand, index) => { 
-      debugger;
+    const hands = this.props.hands != undefined ? this.props.hands.map((hand, index) => {
       return <div><HandName Id={hand.id} potSize={hand.potSize} status={hand.status === true ? "won" : "lost"} key={index}/><button id={hand.id} onClick={this.handleClick}>View Hand Details</button></div>}) : null
     
       return ( 
-        <div className= "Table"> 
+        <div className= "Table">
+          <h2>Table Stats</h2>
           <h3>Id: {this.props.id}</h3>
           <h3>buyin: {this.props.buyin}</h3>
           <h3>capacity:<div> {this.props.capacity}</div></h3>
-          <h3>size: {this.props.size}</h3>
+          <h3>size: {this.props.size}</h3> 
+          <h2>Hand Stats</h2>
           <ul>
           {hands}
         </ul>

@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "es6-promise": "^4.2.5",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",

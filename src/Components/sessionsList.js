@@ -14,7 +14,6 @@ class sessionsList extends Component {
   } 
 
   render() {
-
     const sessions = this.props.sessions.map((sesh, index) => {
       return <div className="small"><SessionName Id={sesh.id} Status= {sesh.status} Minutes={sesh.duration} Amount= {sesh.amount} key={index} /><br /><button id={sesh.id} onClick={this.handleClick}>See Info For This Session</button><br /><br /></div>
     });
@@ -34,7 +33,7 @@ class sessionsList extends Component {
   }
 };
 
-function mapStateToProps(state){ 
+function mapStateToProps(state){
   return {sessions: state.SessionsReducer.sessions}
 } 
 

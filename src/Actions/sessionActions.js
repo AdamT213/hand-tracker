@@ -11,14 +11,13 @@ export function startSession(){
       'Content-Type': 'application/json'
     },
     }) 
-    .then(res => { 
+    .then(res => {
       return res.json()
     }).then(responseJson => {
-      debugger; 
       dispatch({type: 'SET_SESSION', payload: responseJson}) 
-    }).then(res => {  
-      let currentSession = getState().SessionsReducer.session 
-      history.push(`/session/${currentSession.id}`)  
+    }).then(res => {
+      let currentSession = getState().SessionsReducer.session;
+      history.push(`/session/${currentSession.id}`);
     })
   } 
 }   

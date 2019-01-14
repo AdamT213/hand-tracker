@@ -15,20 +15,24 @@ export class showSession extends Component {
     this.props.endSession(session); 
   }
      
-  render() { 
-
+  render() {
       return this.props.session.isTermed ? ( 
-        <div> 
+        <div>
         <Session Id={this.props.session.id} Status={this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} />
          </div> 
       ) : 
-      ( 
-        <div> 
-        <Session Id={this.props.session.id} Status={this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} /> 
+      (
+        <div>
+        <div className= "rightside">
+        <p>Add a New Table</p>
+        <AddTable />
+        </div>
+        <div className="leftside">
+        <Session Id={this.props.session.id} Status={this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} />
         <button id={this.props.session.id} onClick={this.handleClick}>End This Session</button>
-        <p>Add a New Table</p> 
-         <AddTable />
-         </div>
+        </div>
+        <div className= "clear"></div>
+      </div>
       );
     }
   }
