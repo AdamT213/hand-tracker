@@ -47,6 +47,7 @@ export function setCurrentSession(session){
     .then(res => {
       return res.json()
     }).then(responseJson => {
+      debugger;
       dispatch({type: 'SET_SESSION_WITH_TABLES', payload: responseJson})
     }).then(res => {
       let currentSession = getState().SessionsReducer.session

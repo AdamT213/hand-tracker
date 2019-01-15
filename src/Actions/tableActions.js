@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
-import { history } from '../App'
+import { history } from '../App';
 
-export function saveTable(table){ 
+export function saveTable(table, session){ 
   return function(dispatch, getState){ 
     dispatch({type: 'CREATE_TABLE'})
     return fetch('https://hand-trackerapi.herokuapp.com/api/tables', {
@@ -14,11 +14,11 @@ export function saveTable(table){
     .then(res => {
       return res.json()
     }).then(responseJson => {
-      dispatch({type: 'SET_TABLE_AFTER_CREATION', payload: responseJson})
-    }).then(res => {
-      let currentSession = getState().SessionsReducer.session 
-      let currentTable = getState().TablesReducer.table
-      history.push(`/session/${currentSession.id}/table/${currentTable.id}`) 
+      dispatch({type: 'SET_TABLE_AFTER_CREATION', payload: responseJson});
+    }).then(() => {
+      let currentSession = getState().SessionsReducer.session;
+      let currentTable = getState().TablesReducer.table;
+      history.push(`/session/${currentSession.id}/table/${currentTable.id}`);
     })
   }
 }
@@ -55,9 +55,9 @@ export function leaveTable(table){
       return res.json()
     }).then(responseJson => {
       dispatch({type: 'SET_TABLE', payload: responseJson})
-    }).then(res => {
-      let currentSession = getState().SessionsReducer.session
-      history.push(`/session/${currentSession.id}`)
+    }).then(() => {
+      let currentSession = getState().SessionsReducer.session;
+      history.push(`/session/${currentSession.id}`);
     })
   }
 } 

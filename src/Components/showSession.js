@@ -4,7 +4,7 @@ import { history } from '../App'
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Session from './Presentational/Session' 
 import AddTable from './Forms/AddTable' 
-import { endSession } from '../Actions/sessionActions'
+import { endSession, setCurrentSession } from '../Actions/sessionActions'
 
 export class showSession extends Component { 
 
@@ -38,8 +38,7 @@ export class showSession extends Component {
   }
 
 function mapStateToProps(state){
-  debugger;
   return {session: state.SessionsReducer.session}
-}
+};
 
 export default connect(mapStateToProps, { endSession }) (showSession); 

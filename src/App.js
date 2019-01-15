@@ -14,6 +14,8 @@ export const history = createBrowserHistory();
 class App extends Component {
 
   render() {
+
+    document.title = "Welcome to the pokersphere";
     
     return (
       <div className="App">
