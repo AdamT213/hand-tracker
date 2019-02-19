@@ -53,8 +53,10 @@ div .leftside {
 }
 
 div .rightside { 
-  float: right;
+  position: fixed;
   width: 50%;
+  left: 50%; 
+  top: 30%;
 }
 
 h4 { 

@@ -45,16 +45,15 @@ export function setCurrentSession(session){
     method: 'GET',
     })
     .then(res => {
-      return res.json()
+      return res.json();
     }).then(responseJson => {
-      debugger;
-      dispatch({type: 'SET_SESSION_WITH_TABLES', payload: responseJson})
-    }).then(res => {
-      let currentSession = getState().SessionsReducer.session
-      history.push(`/session/${currentSession.id}`)
+      dispatch({type: 'SET_SESSION_WITH_TABLES', payload: responseJson});
+    }).then(() => {
+      let currentSession = getState().SessionsReducer.session;
+      history.push(`/session/${currentSession.id}`);
     })
   }
-} 
+}
 
 export function endSession(session){
   return function(dispatch, getState){

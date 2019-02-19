@@ -8,13 +8,13 @@ import { endSession, setCurrentSession } from '../Actions/sessionActions'
 
 export class showSession extends Component { 
 
-  handleClick = event => { 
+  handleClick = event => {
     event.preventDefault();
     let session = {};
     session.id= event.target.id;
-    this.props.endSession(session); 
+    this.props.endSession(session);
   }
-     
+  
   render() {
       return this.props.session.isTermed ? ( 
         <div>
@@ -39,6 +39,6 @@ export class showSession extends Component {
 
 function mapStateToProps(state){
   return {session: state.SessionsReducer.session}
-};
+}
 
 export default connect(mapStateToProps, { endSession }) (showSession); 

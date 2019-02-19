@@ -6,12 +6,12 @@ import { setCurrentSession } from '../Actions/sessionActions'
 
 class sessionsList extends Component { 
 
-  handleClick = event => { 
+  handleClick = event => {
     event.preventDefault();
     let session = {};
     session.id= event.target.id;
-    this.props.setCurrentSession(session);   
-  } 
+    this.props.setCurrentSession(session);
+  }
 
   render() {
     const sessions = this.props.sessions.map((sesh, index) => {
