@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from "react-router-dom";
 import { saveHand } from '../../Actions/handActions'; 
 
 export class AddHand extends Component {
@@ -23,7 +16,8 @@ export class AddHand extends Component {
       playersToTurn: '',
       playersToRiver: '',
       playersToShowdown: '', 
-      status: '',
+      status: '', 
+      money_invested: '',
       potSize: '',
       holeCards: '',
       flop: '',
@@ -42,10 +36,14 @@ export class AddHand extends Component {
 
   handleOnSubmit = event => { 
     event.preventDefault();
-    const hand = Object.assign({}, this.state.position, this.state.preFlopRaise, this.state.flopBet, this.state.turnBet, this.state.riverBet, this.state.playersToFlop, this.state.playersToTurn, this.state.playersToRiver, this.state.playersToShowdown, this.state.status, this.state.potSize, this.state.holeCards, this.state.flop, this.state.turn, this.state.river);  
-    hand.table_id = this.props.table.id
-    const tags = this.state.tags.forEach(t => Object.assign({}, t));
-    this.props.saveHand(hand,tags);   
+    const hand = {position: this.state.position, preFlopRaise: this.state.preFlopRaise, 
+      flopBet: this.state.flopBet, turnBet: this.state.turnBet, riverBet: this.state.riverBet, 
+      playersToFlop: this.state.playersToFlop, playersToTurn: this.state.playersToTurn, 
+      playersToRiver: this.state.playersToRiver, playersToShowdown:this.state.playersToShowdown,
+      status: this.state.status, money_invested: this.state.money_invested, potSize: this.state.potSize, holeCards: this.state.holeCards, 
+      flop: this.state.flop, turn: this.state.turn, river: this.state.river};
+    hand.table_id = this.props.table.id;
+    this.props.saveHand(hand);
     this.setState({
       position: '',
       preFlopRaise: '',
@@ -57,6 +55,7 @@ export class AddHand extends Component {
       playersToRiver: '',
       playersToShowdown: '', 
       status: '',
+      money_invested: '',
       potSize: '',
       holeCards: '',
       flop: '',
@@ -237,6 +236,18 @@ export class AddHand extends Component {
                           type="text"
                           name="status"
                           value={this.state.status}
+                          onChange={this.handleOnChange}
+                        />
+                      </div>
+                    </div> 
+                    <div className="form-group">
+                      <label htmlFor="money_invested" className="col-md-4 control-label">How much money did you put in?</label>
+                      <div className="col-md-5">
+                        <input
+                          className="form-control"
+                          type="text"
+                          name="money_invested"
+                          value={this.state.money_invested}
                           onChange={this.handleOnChange}
                         />
                       </div>

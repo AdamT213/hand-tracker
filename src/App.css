@@ -57,7 +57,12 @@ div .rightside {
   width: 50%;
   left: 50%; 
   top: 30%;
-}
+} 
+
+div .rightside-with-scroll { 
+  float: right;
+  width: 50%; 
+} 
 
 h4 { 
   font-size: .5 em;

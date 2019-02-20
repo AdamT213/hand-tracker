@@ -23,7 +23,8 @@ export class Table extends Component {
           <h3>Id: {this.props.id}</h3>
           <h3>buyin: {this.props.buyin}</h3>
           <h3>capacity:<div> {this.props.capacity}</div></h3>
-          <h3>size: {this.props.size}</h3> 
+          <h3>size: {this.props.size}</h3>
+          <h3>amount: {this.props.amount}</h3>
           <h2>Hand Stats</h2>
           <ul>
           {hands}

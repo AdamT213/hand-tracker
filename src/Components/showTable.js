@@ -23,12 +23,14 @@ export class showTable extends Component {
       ) : 
       (
         <div>
-          <div className="rightside">
+          <div className="rightside-with-scroll">
           <h3>Add a New Hand</h3>
          <AddHand />
          </div>
          <div className="leftside">
-        <Table id={this.props.table.id} buyin= {this.props.table.buyin} capacity={this.props.table.capacity} size={this.props.table.size} hands={this.props.table.hands} />
+        <Table id={this.props.table.id} buyin= {this.props.table.buyin} 
+        capacity={this.props.table.capacity} size={this.props.table.size} 
+        amount ={this.props.table.amount} hands={this.props.table.hands} />
         <button id={this.props.table.id} onClick={this.handleClick}>Leave This Table</button>
         </div>
         <div className= "clear"></div>
