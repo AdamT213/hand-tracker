@@ -74,4 +74,18 @@ export function endSession(session){
 				history.push(`/session/${currentSession.id}`);
 			}).catch(() => alert("1 or more open tables. Please leave all open tables and try again."));
 	};
-} 
+}  
+
+export function deleteSession(session){
+	return function(dispatch){
+		dispatch({type: "DELETE_SESSION"});
+		return fetch(`https://hand-trackerapi.herokuapp.com/api/session/${session.id}`, {
+			method: "DELETE",
+		})
+			.then(res => {
+				return res.json();
+			}).then(() => {
+				history.push("/");
+			});
+	};
+}

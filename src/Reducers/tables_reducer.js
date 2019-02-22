@@ -5,7 +5,9 @@ export function TablesReducer(state = {table: null, tables: []
 		let table = action.payload.table;
 		return {
 			table: {
-				id: table.id, session_id: table.session_id, buyin: table.buyin, capacity: table.capacity, size: table.size, hands: table.hands, isTermed: table.isTermed
+				id: table.id, session_id: table.session_id, buyin: table.buyin, 
+				capacity: table.capacity, size: table.size, 
+				hands: table.hands, isTermed: table.isTermed, amount: table.amount
 			}, 
 			tables: state.tables.concat(table)
 		};
@@ -13,7 +15,9 @@ export function TablesReducer(state = {table: null, tables: []
 		table = action.payload;
 		return {
 			table: {
-				id: table.id, session_id: table.session_id, buyin: table.buyin, capacity: table.capacity, size: table.size, hands: table.hands, isTermed: table.isTermed
+				id: table.id, session_id: table.session_id, buyin: table.buyin, 
+				capacity: table.capacity, size: table.size, 
+				hands: table.hands, isTermed: table.isTermed, amount: table.amount
 			}, 
 			tables: state.tables.concat(table)
 		};

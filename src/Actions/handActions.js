@@ -2,7 +2,6 @@ import fetch from "isomorphic-fetch";
 import { history } from "../App";
 
 export function saveHand(hand){
-  debugger;
 	return function(dispatch, getState){ 
 		dispatch({type: "CREATE_HAND"});
 		return fetch("https://hand-trackerapi.herokuapp.com/api/hands", {
@@ -13,9 +12,9 @@ export function saveHand(hand){
 			},
 			body: JSON.stringify(hand)})
 			.then(res => {
-				return res.json();
+				return res.json(); 
 			})
-			.then(() => { 
+			.then(() => {
 				let currentSession = getState().SessionsReducer.session;
 				let currentTable = getState().TablesReducer.table;
 				history.push(`/session/${currentSession.id}/table/${currentTable.id}`);
@@ -34,8 +33,11 @@ export function setCurrentHand(hand){
 			}).then(responseJson => {
 				dispatch({type: "SET_HAND", payload: responseJson});
 			}).then(() => {
+				let currentSession = getState().SessionsReducer.session;
+				let currentTable = getState().TablesReducer.table;
 				let currentHand = getState().HandsReducer.hand;
-				history.push(`/hand/${currentHand.id}`);
+				history.push(`/session/${currentSession.id}/table/${currentTable.id}
+				/hand/${currentHand.id}`);
 			});
 	};
 }

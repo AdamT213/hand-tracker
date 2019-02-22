@@ -18,7 +18,9 @@ export class showSession extends Component {
   render() {
       return this.props.session.isTermed ? ( 
         <div>
-        <Session Id={this.props.session.id} Status={this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} />
+        <Session Id={this.props.session.id} Status={this.props.session.status} 
+        Minutes={this.props.session.duration} Amount= {this.props.session.amount} 
+        tables={this.props.session.tables} />
          </div> 
       ) : 
       (

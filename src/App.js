@@ -15,7 +15,7 @@ class App extends Component {
 
   render() {
 
-    document.title = "Welcome to the pokersphere";
+    document.title = "Wilkommen";
     
     return (
       <div className="App">
@@ -32,7 +32,7 @@ class App extends Component {
           <Route exact path= "/session/:id" component= {showSession} /> 
           <Route path= "/sessions/index" component= {sessionsList} /> 
           <Route exact path= "/session/:id/table/:id" component= {showTable}/> 
-          <Route path= "/hand/:id" component= {showHand} />
+          <Route path= "/session/:id/table/:id/hand/:id" component= {showHand} />
           </div>
           </Switch>
         </Router>

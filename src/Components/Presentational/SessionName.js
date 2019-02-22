@@ -9,8 +9,8 @@ export class SessionName extends Component {
         <div className= "SessionName"> 
           <h3>Id: {this.props.Id}</h3>
           <h3>Minutes: {this.props.Minutes}</h3>
-          <h3>Status: {this.props.status}</h3>
-          <h3>Amount: {this.props.amount}</h3>
+          <h3>Status: {this.props.Status}</h3>
+          <h3>Amount: ${this.props.Amount}</h3>
         </div>
       )
     }

@@ -7,7 +7,6 @@ import AddHand from './Forms/AddHand'
 import { leaveTable } from '../Actions/tableActions'
 
 export class showTable extends Component { 
-
   handleClick  = event => {
     event.preventDefault();
     let table = {};
@@ -15,10 +14,12 @@ export class showTable extends Component {
     this.props.leaveTable(table);
   }
      
-  render() {
+  render() { 
     return this.props.table.isTermed ? (
         <div> 
-        <Table id={this.props.table.id} buyin= {this.props.table.buyin} capacity={this.props.table.capacity} size={this.props.table.size} hands={this.props.table.hands} />
+        <Table id={this.props.table.id} buyin= {this.props.table.buyin} 
+        capacity={this.props.table.capacity} size={this.props.table.size} 
+         amount ={this.props.table.amount} hands={this.props.table.hands} />
          </div>
       ) : 
       (
@@ -30,7 +31,7 @@ export class showTable extends Component {
          <div className="leftside">
         <Table id={this.props.table.id} buyin= {this.props.table.buyin} 
         capacity={this.props.table.capacity} size={this.props.table.size} 
-        amount ={this.props.table.amount} hands={this.props.table.hands} />
+         hands={this.props.table.hands} />
         <button id={this.props.table.id} onClick={this.handleClick}>Leave This Table</button>
         </div>
         <div className= "clear"></div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 import { saveHand } from '../../Actions/handActions'; 
+import { saveHandTags } from '../../Actions/TagActions';
 
 export class AddHand extends Component {
   
@@ -41,27 +42,29 @@ export class AddHand extends Component {
       playersToFlop: this.state.playersToFlop, playersToTurn: this.state.playersToTurn, 
       playersToRiver: this.state.playersToRiver, playersToShowdown:this.state.playersToShowdown,
       status: this.state.status, money_invested: this.state.money_invested, potSize: this.state.potSize, holeCards: this.state.holeCards, 
-      flop: this.state.flop, turn: this.state.turn, river: this.state.river};
-    hand.table_id = this.props.table.id;
-    this.props.saveHand(hand);
-    this.setState({
-      position: '',
-      preFlopRaise: '',
-      flopBet: '',
-      turnBet: '',
-      riverBet: '',
-      playersToFlop: '', 
-      playersToTurn: '',
-      playersToRiver: '',
-      playersToShowdown: '', 
-      status: '',
-      money_invested: '',
-      potSize: '',
-      holeCards: '',
-      flop: '',
-      turn: '',
-      river: '', 
-      tags: []
+      flop: this.state.flop, turn: this.state.turn, river: this.state.river}; 
+      const tags = this.state.tags.split(","); 
+      hand.table_id = this.props.table.id;
+      this.props.saveHand(hand); 
+      this.props.saveHandTags(tags);
+      this.setState({
+        position: '',
+        preFlopRaise: '',
+        flopBet: '',
+        turnBet: '',
+        riverBet: '',
+        playersToFlop: '', 
+        playersToTurn: '',
+        playersToRiver: '',
+        playersToShowdown: '', 
+        status: '',
+        money_invested: '',
+        potSize: '',
+        holeCards: '',
+        flop: '',
+        turn: '',
+        river: '', 
+        tags: []
     });
   }
 
@@ -265,7 +268,7 @@ export class AddHand extends Component {
                       </div>
                     </div> 
                     <div className="form-group">
-                      <label htmlFor="tags" className="col-md-4 control-label">How would you like to tag this hand?</label>
+                      <label htmlFor="tags" className="col-md-4 control-label">How would you like to tag this hand? (comma-sep list)</label>
                       <div className="col-md-5">
                         <input
                           className="form-control"
@@ -295,4 +298,4 @@ export class AddHand extends Component {
     return {table: state.TablesReducer.table}
   };
 
-export default connect(mapStateToProps, { saveHand })(AddHand);
+export default connect(mapStateToProps, { saveHand, saveHandTags })(AddHand);
