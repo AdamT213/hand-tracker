@@ -4,6 +4,7 @@ import Session from './Presentational/Session' ;
 import AddTable from './Forms/AddTable';
 import { endSession, setCurrentSession } from '../Actions/sessionActions';
 import AddTagsForm from './Forms/AddTagsForm';
+import { EndButton } from "./Presentational/styles";
 
 export class showSession extends Component { 
 
@@ -29,7 +30,7 @@ export class showSession extends Component {
         <AddTable />
         </div>
         <div className="leftside">
-        <button id={this.props.session.id} onClick={this.handleClick}>End This Session</button><br /><br />
+        <EndButton id={this.props.session.id} onClick={this.handleClick}>End This Session</EndButton><br /><br />
         <AddTagsForm />
         <Session Id={this.props.session.id} Status={this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} />
         </div>

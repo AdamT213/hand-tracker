@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TableName from './TableName'
 import { setCurrentTable } from '../../Actions/tableActions';
+import { InfoButton } from "./styles";
 
 export class Session extends Component {  
 
@@ -15,7 +16,7 @@ export class Session extends Component {
   render() { 
 
     const tables = this.props.tables != undefined ? this.props.tables.map((tbl, index) => {
-      return <div><TableName Id={tbl.id} capacity={tbl.capacity} size={tbl.size} buyin={tbl.buyin} key={index}/><button id={tbl.id} onClick={this.handleClick}>View Hands</button>
+      return <div><TableName Id={tbl.id} capacity={tbl.capacity} size={tbl.size} buyin={tbl.buyin} key={index}/><InfoButton id={tbl.id} onClick={this.handleClick}>View Hands</InfoButton>
        </div>}) : null
 
      return (

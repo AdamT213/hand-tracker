@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import SessionName from './Presentational/SessionName';
 import { setCurrentSession } from '../Actions/sessionActions' 
 import { deleteSession } from '../Actions/sessionActions' 
+import {InfoButton, EndButton} from "./Presentational/styles";
 
 class sessionsList extends Component { 
 
@@ -22,13 +23,13 @@ class sessionsList extends Component {
   } 
 
   render() {
+
     const sessions = this.props.sessions.map((sesh, index) => {
       return <div className="small"><SessionName Id={sesh.id} Status={sesh.status} 
       Minutes={sesh.duration} Amount= {sesh.amount} 
-      key={index} /><br /><button id={sesh.id} onClick={this.handleClick}>
-      See Info For This Session</button><br /><br /><button className="small"
-      id={sesh.id} onClick={this.handleDelete}>
-      Delete This Session</button><br /><br /></div>
+      key={index} /><br /><InfoButton id={sesh.id} onClick={this.handleClick}>
+      See Info For This Session</InfoButton><br /><br />
+      <EndButton id={sesh.id} onClick={this.handleDelete}>Delete this Session</EndButton><br /><br /></div>
     });
 
     return (

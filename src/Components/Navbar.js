@@ -6,9 +6,9 @@ import { getSessions } from '../Actions/sessionActions'
 class NavBar extends Component {
 
   handleOnClick = event => { 
-    event.preventDefault; 
+    event.preventDefault(); 
     this.props.getSessions();
-  } 
+  }
 
   render() {
 
@@ -17,7 +17,7 @@ class NavBar extends Component {
         <NavLink className="link"
         to="/"
         exact
-      >Home</NavLink> 
+      >Home</NavLink>
       <NavLink className="link" to= '/sessions/index' onClick={this.handleOnClick}>See your Past Sessions</NavLink>
       </div>
     );

@@ -10,7 +10,8 @@ import {
 } from "react-router-dom"; 
 import AddHand from './Forms/AddHand' 
 import { startSession } from '../Actions/sessionActions' 
-
+import { HomeButton } from "./Presentational/styles"
+import { SearchTags } from "./Forms/SearchTags"
 
 export class Home extends Component { 
 
@@ -25,10 +26,8 @@ export class Home extends Component {
           <Router> 
           <Switch> 
           <div>
-          <button className= "navButton" onClick={this.handleClick}>Start New Session</button> 
-          <h4> Search For Hands By Category </h4> 
-          <h4> Search For Sessions By Category </h4> 
-          <h4> Search For Tables By Category </h4> 
+          <HomeButton onClick={this.handleClick}>Start New Session</HomeButton> 
+          <SearchTags /> 
           </div>
           </Switch> 
           </Router>

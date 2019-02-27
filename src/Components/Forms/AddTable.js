@@ -7,7 +7,8 @@ import {
   Redirect,
   withRouter,
 } from "react-router-dom";
-import { saveTable } from '../../Actions/tableActions'; 
+import { saveTable } from '../../Actions/tableActions';
+import { InfoButton } from "../Presentational/styles";
 
 export class AddTable extends Component {
   
@@ -83,7 +84,7 @@ export class AddTable extends Component {
                     </div>
                     <div className="form-group">
                       <div className="col-md-6 col-md-offset-4">
-                        <button type="submit" className="btn btn-default">Good Luck!</button>
+                        <InfoButton type="submit" className="btn btn-default">Good Luck!</InfoButton>
                       </div>
                     </div>
                   </form>

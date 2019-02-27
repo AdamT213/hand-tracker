@@ -38,10 +38,6 @@ a:hover {
   animation-name: slidein-right;
 } 
 
-button.navButton { 
-  margin: 10px;
-}
-
 div { 
   display: block;
   width: auto;

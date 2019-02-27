@@ -6,6 +6,7 @@ import Table from './Presentational/Table';
 import AddHand from './Forms/AddHand';
 import { leaveTable } from '../Actions/tableActions';
 import  AddTagsForm  from './Forms/AddTagsForm';
+import { EndButton } from "./Presentational/styles";
 
 export class showTable extends Component { 
   handleClick  = event => {
@@ -30,7 +31,7 @@ export class showTable extends Component {
          <AddHand />
          </div>
          <div className="leftside">
-         <button id={this.props.table.id} onClick={this.handleClick}>Leave This Table</button><br /><br />
+         <EndButton id={this.props.table.id} onClick={this.handleClick}>Leave This Table</EndButton><br /><br />
          <AddTagsForm />
         <Table id={this.props.table.id} buyin= {this.props.table.buyin} 
         capacity={this.props.table.capacity} size={this.props.table.size} 

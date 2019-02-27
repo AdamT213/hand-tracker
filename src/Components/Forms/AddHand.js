@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 import { saveHand } from '../../Actions/handActions'; 
+import { InfoButton } from "../Presentational/styles";
 
 export class AddHand extends Component {
   
@@ -279,7 +280,7 @@ export class AddHand extends Component {
                     </div> 
                     <div className="form-group">
                       <div className="col-md-6 col-md-offset-4">
-                        <button type="submit" className="btn btn-default">Good Luck!</button>
+                        <InfoButton type="submit" className="btn btn-default">Good Luck!</InfoButton>
                       </div>
                     </div>
                   </form>

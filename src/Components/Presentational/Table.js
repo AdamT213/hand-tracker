@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HandName from './HandName';
 import { setCurrentHand } from '../../Actions/handActions';
+import { InfoButton } from "./styles";
 
 export class Table extends Component {
 
@@ -17,7 +18,7 @@ export class Table extends Component {
     const hands = this.props.hands != undefined ? this.props.hands.map((hand, index) => {
       return <div><HandName Id={hand.id} potSize={hand.potSize} 
       status={hand.status === true ? "won" : "lost"} key={index}/>
-      <button id={hand.id} onClick={this.handleClick}>View Hand Details</button></div>}) : null
+      <InfoButton id={hand.id} onClick={this.handleClick}>View Hand Details</InfoButton></div>}) : null
     
       return (
         <div className= "Table">

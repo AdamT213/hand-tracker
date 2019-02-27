@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';  
 import { saveTableTags } from '../../Actions/tableActions'; 
 import { saveSessionTags } from '../../Actions/sessionActions';
+import { InfoButton } from "../Presentational/styles";
 
 export class AddTagsForm extends Component {
   
@@ -63,7 +64,7 @@ export class AddTagsForm extends Component {
                       </div>
                       <div className="form-group">
                         <div className="col-md-6 col-md-offset-4">
-                          <button type="submit" className="btn btn-default">Add</button>
+                          <InfoButton type="submit" className="btn btn-default">Add</InfoButton>
                         </div>
                       </div>
                     </form>
