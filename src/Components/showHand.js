@@ -7,10 +7,10 @@ import Hand from './Presentational/Hand';
 export class showHand extends Component { 
      
   render() { 
-
       return ( 
         <div> 
-        <Hand id={this.props.hand.id} holeCards={this.props.hand.holeCards} position={this.props.hand.position} 
+        <Hand id={this.props.hand.id} holeCards={this.props.hand.holeCards} 
+          position={this.props.hand.position} 
           preFlopRaise={this.props.hand.preFlopRaise}
           playersToFlop={this.props.hand.playersToFlop}
           flop={this.props.hand.flop} 
@@ -23,9 +23,10 @@ export class showHand extends Component {
           riverBet={this.props.hand.riverBet} 
           playersToShowdown={this.props.hand.playersToShowdown}
           potSize={this.props.hand.potSize}
-          status={this.props.hand.status} />  
+          status={this.props.hand.status}
+          tags={this.props.hand.tags} />
         </div>
-      ); 
+      );
     }
   }
 

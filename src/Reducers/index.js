@@ -5,7 +5,7 @@ import { TablesReducer } from "./tables_reducer";
 import { TagsReducer } from "./tags_reducer";
 
 const rootReducer = combineReducers({
-	HandsReducer, SessionsReducer, TablesReducer, TagsReducer
+	HandsReducer, SessionsReducer, TablesReducer, TagsReducer,
 });
  
 export default rootReducer;

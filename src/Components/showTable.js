@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { history } from '../App' 
+import { history } from '../App' ;
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import Table from './Presentational/Table'
-import AddHand from './Forms/AddHand' 
-import { leaveTable } from '../Actions/tableActions'
+import Table from './Presentational/Table';
+import AddHand from './Forms/AddHand';
+import { leaveTable } from '../Actions/tableActions';
+import  AddTagsForm  from './Forms/AddTagsForm';
 
 export class showTable extends Component { 
   handleClick  = event => {
@@ -29,10 +30,11 @@ export class showTable extends Component {
          <AddHand />
          </div>
          <div className="leftside">
+         <button id={this.props.table.id} onClick={this.handleClick}>Leave This Table</button><br /><br />
+         <AddTagsForm />
         <Table id={this.props.table.id} buyin= {this.props.table.buyin} 
         capacity={this.props.table.capacity} size={this.props.table.size} 
          hands={this.props.table.hands} />
-        <button id={this.props.table.id} onClick={this.handleClick}>Leave This Table</button>
         </div>
         <div className= "clear"></div>
          </div>

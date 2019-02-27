@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 import { saveHand } from '../../Actions/handActions'; 
-import { saveHandTags } from '../../Actions/TagActions';
 
 export class AddHand extends Component {
   
@@ -43,10 +42,9 @@ export class AddHand extends Component {
       playersToRiver: this.state.playersToRiver, playersToShowdown:this.state.playersToShowdown,
       status: this.state.status, money_invested: this.state.money_invested, potSize: this.state.potSize, holeCards: this.state.holeCards, 
       flop: this.state.flop, turn: this.state.turn, river: this.state.river}; 
-      const tags = this.state.tags.split(","); 
+      const tags = this.state.tags.split(",");
       hand.table_id = this.props.table.id;
-      this.props.saveHand(hand); 
-      this.props.saveHandTags(tags);
+      this.props.saveHand(hand, tags);
       this.setState({
         position: '',
         preFlopRaise: '',
@@ -298,4 +296,4 @@ export class AddHand extends Component {
     return {table: state.TablesReducer.table}
   };
 
-export default connect(mapStateToProps, { saveHand, saveHandTags })(AddHand);
+export default connect(mapStateToProps, { saveHand })(AddHand);

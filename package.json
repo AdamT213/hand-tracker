@@ -24,5 +24,17 @@
   "devDependencies": {
     "eslint": "^5.12.0",
     "eslint-plugin-react": "^7.12.3"
-  }
+  },
+  "description": "A tool to track common trends in the poker hands I win and lose",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdamT213/hand-trackerClient.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdamT213/hand-trackerClient/issues"
+  },
+  "homepage": "https://github.com/AdamT213/hand-trackerClient#readme"
 }

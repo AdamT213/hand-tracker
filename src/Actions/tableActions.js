@@ -61,3 +61,39 @@ export function leaveTable(table){
 			});
 	};
 }
+
+export function saveTableTags(tags, table_id){
+	return function(dispatch, getState){
+		tags.forEach(tag => {
+			tag = Object.assign({}, {name: tag});
+			dispatch({type: "CREATE_TAG"}); 
+			return fetch("https://hand-trackerapi.herokuapp.com/api/tags", {
+				method: "POST",
+				headers: {
+					"Accept": "application/json",
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(tag)})
+				.then(res => {
+					return res.json();
+				}) 
+				.then((responseJson) => { 
+					dispatch({type: "SET_TAG_AFTER_CREATION", payload: responseJson});
+				})
+				.then(() => {
+					let currentTag = getState().TagsReducer.tag;
+					let tag = {table_id: table_id, tag_id: currentTag.id, tag_name: currentTag.name};
+					fetch("https://hand-trackerapi.herokuapp.com/api/tables_tags", {
+						method: "POST",
+						headers: {
+							"Accept": "application/json",
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(tag)})
+						.then(res => {
+							return res.json(); 
+						});
+				});
+		});
+	};
+}

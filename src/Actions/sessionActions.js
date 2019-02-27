@@ -89,3 +89,39 @@ export function deleteSession(session){
 			});
 	};
 }
+
+export function saveSessionTags(tags, session_id){
+	return function(dispatch, getState){
+		tags.forEach(tag => {
+			tag = Object.assign({}, {name: tag});
+			dispatch({type: "CREATE_TAG"}); 
+			return fetch("https://hand-trackerapi.herokuapp.com/api/tags", {
+				method: "POST",
+				headers: {
+					"Accept": "application/json",
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(tag)})
+				.then(res => {
+					return res.json();
+				}) .catch(() => alert("try typing some text, dawg!"))
+				.then((responseJson) => { 
+					dispatch({type: "SET_TAG_AFTER_CREATION", payload: responseJson});
+				})
+				.then(() => {
+					let currentTag = getState().TagsReducer.tag;
+					let tag = {session_id: session_id, tag_id: currentTag.id, tag_name: currentTag.name};
+					fetch("https://hand-trackerapi.herokuapp.com/api/sessions_tags", {
+						method: "POST",
+						headers: {
+							"Accept": "application/json",
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(tag)})
+						.then(res => {
+							return res.json(); 
+						}).catch(() => alert("There was an error. Try again"));
+				});
+		});
+	};
+}

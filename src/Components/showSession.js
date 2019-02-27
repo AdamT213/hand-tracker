@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { history } from '../App' 
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import Session from './Presentational/Session' 
-import AddTable from './Forms/AddTable' 
-import { endSession, setCurrentSession } from '../Actions/sessionActions'
+import Session from './Presentational/Session' ;
+import AddTable from './Forms/AddTable';
+import { endSession, setCurrentSession } from '../Actions/sessionActions';
+import AddTagsForm from './Forms/AddTagsForm';
 
 export class showSession extends Component { 
 
@@ -30,8 +29,9 @@ export class showSession extends Component {
         <AddTable />
         </div>
         <div className="leftside">
+        <button id={this.props.session.id} onClick={this.handleClick}>End This Session</button><br /><br />
+        <AddTagsForm />
         <Session Id={this.props.session.id} Status={this.props.session.status} Minutes={this.props.session.duration} Amount= {this.props.session.amount} tables={this.props.session.tables} />
-        <button id={this.props.session.id} onClick={this.handleClick}>End This Session</button>
         </div>
         <div className= "clear"></div>
       </div>

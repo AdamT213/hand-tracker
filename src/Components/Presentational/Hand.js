@@ -1,8 +1,11 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 
 export class Hand extends Component {  
     
   render() { 
+    debugger;
+    const tags = this.props.tags != undefined ? this.props.tags.map(tag => {
+      return <h3>{tag.tag_name}</h3>}) : null;
     
       return (   
         <div className= "Hand"> 
@@ -21,6 +24,10 @@ export class Hand extends Component {
           <h3>playersToShowdown: {this.props.playersToShowdown}</h3>
           <h3>potSize: {this.props.potSize}</h3>
           <h3>status: {this.props.status}</h3>
+          <h3>tags</h3>
+          <ul>
+          {tags}
+        </ul>
         </div>
       )
     }
