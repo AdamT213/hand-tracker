@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const Input = styled.input `
     width: 35%;
-    text-align: center;
+	text-align: center;
+	font-style: italic;
  `;
 
 export function SearchTags() {
@@ -34,13 +35,13 @@ export function SearchTags() {
 							<form className="form-horizontal" onSubmit={handleOnSubmit}>
 								<div className="form-group">
 									<label htmlFor="tag" className="col-md-4 control-label">Search By Tags</label>
-									<div className="col-md-5">
+									<div className="col-md-5"><br />
 										<Input
 											className="form-control"
 											name="tags"
 											value={state.tags}
 											onChange={handleOnChange} />
-									</div>
+									</div><br />
 								</div>
 								<div className="form-group">
 									<div className="col-md-6 col-md-offset-4">

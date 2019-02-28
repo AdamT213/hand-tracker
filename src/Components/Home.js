@@ -26,7 +26,7 @@ export class Home extends Component {
           <Router> 
           <Switch> 
           <div>
-          <HomeButton onClick={this.handleClick}>Start New Session</HomeButton> 
+          <HomeButton onClick={this.handleClick}>Start New Session</HomeButton><br />
           <SearchTags /> 
           </div>
           </Switch> 

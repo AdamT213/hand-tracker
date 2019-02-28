@@ -10,7 +10,7 @@ export const InfoButton = styled.button `
 ` ;
 
 export const HomeButton = styled(InfoButton)`
-    margin: 10px;
+    margin: 2%;
 `;
 
 export const EndButton = styled.button `

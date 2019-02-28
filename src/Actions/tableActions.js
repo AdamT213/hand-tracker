@@ -37,7 +37,7 @@ export function setCurrentTable(table){
 				let currentSession = getState().SessionsReducer.session; 
 				let currentTable = getState().TablesReducer.table; 
 				history.replace(`/session/${currentSession.id}/table/${currentTable.id}`);
-			});
+			}).catch(error => console.error(error));
 	};
 }
 
