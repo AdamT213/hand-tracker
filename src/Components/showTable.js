@@ -32,10 +32,10 @@ export class showTable extends Component {
          </div>
          <div className="leftside">
          <EndButton id={this.props.table.id} onClick={this.handleClick}>Leave This Table</EndButton><br /><br />
-         <AddTagsForm />
-        <Table id={this.props.table.id} buyin= {this.props.table.buyin} 
+         <AddTagsForm table={this.props.table} />
+        <Table id={this.props.table.id} buyin= {this.props.table.buyin} handCount={this.props.table.hands.length}
         capacity={this.props.table.capacity} size={this.props.table.size} 
-         hands={this.props.table.hands} />
+         amount= "That depends on you my son" hands={this.props.table.hands} />
         </div>
         <div className= "clear"></div>
          </div>

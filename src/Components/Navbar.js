@@ -18,7 +18,10 @@ class NavBar extends Component {
         to="/"
         exact
       >Home</NavLink>
-      <NavLink className="link" to= '/sessions/index' onClick={this.handleOnClick}>See your Past Sessions</NavLink>
+      <NavLink className="link" 
+      to= '/sessions/index' 
+      onClick={this.handleOnClick}
+      >See your Past Sessions</NavLink>
       </div>
     );
   }

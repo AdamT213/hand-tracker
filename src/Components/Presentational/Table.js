@@ -14,20 +14,21 @@ export class Table extends Component {
   }
     
   render() {
-
+    
     const hands = this.props.hands != undefined ? this.props.hands.map((hand, index) => {
       return <div><HandName Id={hand.id} potSize={hand.potSize} 
-      status={hand.status === true ? "won" : "lost"} key={index}/>
-      <InfoButton id={hand.id} onClick={this.handleClick}>View Hand Details</InfoButton></div>}) : null
+      moneyInvested={hand.money_invested} tags={hand.hands_tags}
+      status={hand.status ? "won" : "lost"} key={index}/>
+      <InfoButton id={hand.id} onClick={this.handleClick}>View Hand Details</InfoButton></div>}) : <p>No Hands Yet</p>;
     
       return (
         <div className= "Table">
           <h2>Table Stats</h2>
-          <h3>Id: {this.props.id}</h3>
-          <h3>buyin: {this.props.buyin}</h3>
-          <h3>capacity:<div>{this.props.capacity}</div></h3>
-          <h3>size: {this.props.size}</h3>
-          <h3>amount: ${this.props.amount}</h3>
+          <h3>Hand Count: {this.props.handCount}</h3>
+          <h3>Buy-in: {this.props.buyin}</h3>
+          <h3>Capacity:{this.props.capacity}</h3>
+          <h3>Size: {this.props.size}</h3>
+          <h3>Amount: ${this.props.amount}</h3>
           <h2>Hand Stats</h2>
           <ul>
           {hands}

@@ -52,7 +52,7 @@ export class showSession extends Component {
         </div>
         <div className="leftside">
         <EndButton id={this.props.session.id} onClick={this.handleClick}>End This Session</EndButton><br /><br />
-        <AddTagsForm />
+        <AddTagsForm session={this.props.session}/>
         <InProgressSession tables={this.props.session.tables} Minutes={this.state.duration} />
         </div>
         <div className= "clear"></div>

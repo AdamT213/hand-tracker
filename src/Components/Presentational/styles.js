@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 
 export const InfoButton = styled.button ` 
-      background: #0d7c57;
-      color: #f61408;
+      background: #e7e7e7;
+      color: #0d7c57;
+      border-color: #0d7c57;
       :hover {
-        background: #e7e7e7;
+        background: #0d7c57;
       }
 ` ;
 
@@ -14,10 +15,11 @@ export const HomeButton = styled(InfoButton)`
 `;
 
 export const EndButton = styled.button `
-  background: #f61408;
-  color: #0d7c57;
+  background: #e7e7e7;
+  color: #f61408;
+  border-color: #f61408;
   font-size: 0.5 em; 
   :hover {
-    background: #e7e7e7;
+    background: #f61408;
   }
 `;

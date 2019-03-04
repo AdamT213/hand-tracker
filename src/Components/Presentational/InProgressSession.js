@@ -6,7 +6,7 @@ import { setCurrentTable } from "../../Actions/tableActions";
 
 function  InProgressSession(props) {
 	
-	const handleClick = event => { 
+	const handleClick = event => {
 		event.preventDefault();
 		let table = {};
     	table.id= event.target.id;
@@ -16,7 +16,7 @@ function  InProgressSession(props) {
 	//shows just the basic info for a session still in progress
     
 	const tables = props.tables != undefined ? props.tables.map((tbl, index) => {
-		return <div><TableName Id={tbl.id} capacity={tbl.capacity} size={tbl.size} buyin={tbl.buyin} key={index}/><InfoButton id={tbl.id} onClick={handleClick}>View Hands</InfoButton>
+		return <div><TableName Id={tbl.id} capacity={tbl.capacity} size={tbl.size} buyin={tbl.buyin} tags={tbl.tables_tags} key={index}/><InfoButton id={tbl.id} onClick={handleClick}>View Hands</InfoButton>
 		</div>;}) : null;
     
 	return (

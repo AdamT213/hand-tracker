@@ -8,12 +8,12 @@ export class AddTagsForm extends Component {
   
     constructor(props) {
       super(props)
-      this.props.tables_tags ? 
+      this.props.table ? 
       this.state = { 
-        tags: this.props.tables_tags.map(tag => tag.tag_name),
+        tags: this.props.table.tags.map(tag => tag.tag_name),
       } : 
       this.state = { 
-        tags: this.props.sessions_tags.map(tag => tag.tag_name),
+        tags: this.props.session.tags.map(tag => tag.tag_name),
       }
     }
   
@@ -27,18 +27,18 @@ export class AddTagsForm extends Component {
     handleOnSubmit = event => { 
       const tags = this.state.tags.split(",");
       event.preventDefault(); 
-      if (this.props.table_id) {
-        const table_id = this.props.table_id;
+      if (this.props.table) {
+        const table_id = this.props.table.id;
         this.props.saveTableTags(tags, table_id);  
         this.setState({
-          tags: this.props.tables_tags.map(tag => tag.tag_name),
+          tags: this.props.table.tags.map(tag => tag.tag_name),
         });
       } 
       else { 
-        const session_id = this.props.session_id;
+        const session_id = this.props.session.id;
         this.props.saveSessionTags(tags, session_id);
         this.setState({
-          tags: this.props.sessions_tags.map(tag => tag.tag_name),
+          tags: this.props.session.tags.map(tag => tag.tag_name),
         });
       }
     }
@@ -72,13 +72,9 @@ export class AddTagsForm extends Component {
                 </div>
               </div>
             </div>
-          </div> 
-        ); 
+          </div>
+        );
       }
     }
-
-    function mapStateToProps(state){ 
-        return  state.TablesReducer.table ? {tables_tags: state.TablesReducer.table.tags, table_id: state.TablesReducer.table.id} :  {sessions_tags: state.SessionsReducer.session.tags, session_id: state.SessionsReducer.session.id};
-    }
     
-    export default connect(mapStateToProps, { saveTableTags, saveSessionTags })(AddTagsForm);
+    export default connect(null, { saveTableTags, saveSessionTags })(AddTagsForm);
