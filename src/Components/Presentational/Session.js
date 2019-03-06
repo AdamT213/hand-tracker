@@ -21,8 +21,8 @@ export class Session extends Component {
      return (
       <div className= "Session">
         <h3>Minutes: {this.props.Minutes}</h3>
-        <h3>Status: {this.props.Status === 1 ? 'Up'  : 'Down'}</h3>
-        <h3>Amount: ${this.props.Amount}</h3><br />
+        <h3>Status: {this.props.Status ? 'Up'  : 'Down'}</h3>
+        <h3>Amount: ${this.props.Amount}</h3>
         <h3>Tables:</h3>
         <ul>
         {tables}

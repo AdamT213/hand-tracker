@@ -26,6 +26,7 @@ class sessionsList extends Component {
   render() {
 
     const sessions = this.props.sessions.map((sesh, index) => {
+      debugger;
       return sesh.isTermed ? 
       ( <div className="small"><SessionName Id={sesh.id} Status={sesh.status} 
       Minutes={sesh.duration} Amount= {sesh.amount} created_at={sesh.created_at}

@@ -124,4 +124,16 @@ export function saveSessionTags(tags, session_id){
 				});
 		});
 	};
+} 
+
+export function fetchLastMonthData() { 
+	return function(dispatch){
+		return fetch("https://hand-trackerapi.herokuapp.com/api/last30Days", {
+			method: "GET",
+		}).then(res => {
+			return res.json();
+		}).then(responseJson => {
+			dispatch({type: "SET_DATA", payload: responseJson});
+		});
+	};
 }

@@ -8,12 +8,19 @@ export class AddTagsForm extends Component {
   
     constructor(props) {
       super(props)
-      this.props.table ? 
-      this.state = { 
-        tags: this.props.table.tags.map(tag => tag.tag_name),
-      } : 
-      this.state = { 
-        tags: this.props.session.tags.map(tag => tag.tag_name),
+      if (this.props.table && this.props.table.tags){
+        this.state = { 
+          tags: this.props.table.tags.map(tag => tag.tag_name),
+        }
+      }
+      else if (this.props.session && this.props.session.tags){
+        this.state = { 
+          tags: this.props.session.tags.map(tag => tag.tag_name),
+        }
+      } else { 
+        this.state = { 
+          tags: "No tags yet",
+        }
       }
     }
   

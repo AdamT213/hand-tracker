@@ -11,6 +11,13 @@ const Tag = styled.a`
 	  }
 `;
 
+const Div = styled.div`
+	  display: inline-block;
+	  border-style: groove;
+	  border-color: green; 
+	  margin-bottom: 1%;
+`;
+
 const tags = props => {
 	return props.tags[0] ? props.tags.map(tag => {
 		return <Tag>{tag.tag_name}, </Tag>;
@@ -30,9 +37,9 @@ export class TableName extends Component {
 				<h3>Capacity: {this.props.capacity}</h3>
 				<h3>Size: {this.props.size}</h3>
 				<h3>Tags</h3>
-				<div>
+				<Div>
 					{tags(this.props)}
-				</div>
+				</Div>
 			</div>
 		);
 	}

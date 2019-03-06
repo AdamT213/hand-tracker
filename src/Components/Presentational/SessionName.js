@@ -13,7 +13,7 @@ const Tag = styled.a`
 
 const tags = props => { 
 	return props.tags[0] ? props.tags.map(tag => {
-		return <Tag>{tag.tag_name}</Tag> + ",";
+		return <Tag>{tag.tag_name}, </Tag>;
 	}) 
 		: <p>No tags yet</p>;
 };
@@ -31,7 +31,7 @@ export class SessionName extends Component {
 			<div className= "SessionName"> 
 				<h3>Date: {date(this.props)}</h3>
 				<h3>Minutes: {this.props.Minutes}</h3>
-				<h3>Status: {this.props.Status}</h3>
+				<h3>Status: {this.props.Status? "Up" : "Down"}</h3>
 				<h3>Amount: ${this.props.Amount}</h3> 
 				<h3>Tags</h3>
 				<div>
