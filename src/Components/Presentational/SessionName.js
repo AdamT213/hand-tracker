@@ -1,7 +1,16 @@
 import React, { Component } from 'react'; 
 import styled from "styled-components";
-import { Div } from "./styles";
 
+const Div = styled.div` 
+background: #000000;
+color: #0d7c57;
+display: inline-block;
+padding: 1%;
+margin: 5%;
+margin-bottom: 2%;
+border-style: inset;
+vertical-align: middle;
+`;
 
 const Tag = styled.a`
 	display: inline-block;

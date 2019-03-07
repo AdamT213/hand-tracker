@@ -6,6 +6,31 @@ import AddTable from './Forms/AddTable';
 import { endSession, setCurrentSession } from '../Actions/sessionActions';
 import AddTagsForm from './Forms/AddTagsForm';
 import { EndButton } from "./Presentational/styles";
+import styles from "styled-components";
+
+const DivContainer = styles.div` 
+  width: auto;
+  display: inline;
+`;
+
+const LeftDiv = styles.div`
+  display: inline-block;
+  width: 45%;
+  margin: 5%;
+  position: relative; 
+  right: 20%;
+`;
+
+const RightDiv = styles.div`
+  display: inline-block;
+  position: fixed;
+  width: 25%;
+  right: 10%;
+ vertical-align: middle;
+  border-style: solid;
+  border-width: 1px;
+  padding-bottom: 1%;
+`;
 
 const calculateDuration = startTime => { 
     return parseInt(new Date().getTime() - 
@@ -38,25 +63,22 @@ export class showSession extends Component {
   
   render() {
       return this.props.session.isTermed ? ( 
-        <div>
         <Session Id={this.props.session.id} Status={this.props.session.status} 
         Minutes={this.props.session.duration} Amount={this.props.session.amount}
         tables={this.props.session.tables} />
-         </div>
       ) :
       (
-        <div>
-        <div className= "rightside">
-        <p>Add a New Table</p>
-        <AddTable />
-        </div>
-        <div className="leftside">
+        <DivContainer>
+        <LeftDiv>
         <EndButton id={this.props.session.id} onClick={this.handleClick}>End This Session</EndButton><br /><br />
         <AddTagsForm session={this.props.session}/>
         <InProgressSession tables={this.props.session.tables} Minutes={this.state.duration} />
-        </div>
-        <div className= "clear"></div>
-      </div>
+        </LeftDiv>
+        <RightDiv>
+        <p>Add a New Table</p>
+        <AddTable />
+        </RightDiv>
+      </DivContainer>
       );
     }
   }

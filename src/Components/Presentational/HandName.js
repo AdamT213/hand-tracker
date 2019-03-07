@@ -6,15 +6,8 @@ const Div = styled.div`
 	background: #ffffff;
 	margin: 2%;
 	padding: 1%;
+	display: inline-block;
 	`;
-
-	// const Div = styled.div` 
-	// background: #f61408;
-	// color: #000000;
-	// display: inline-block;
-	// padding: 1%;
-	// border-style: inset;
-	// `;
 
 const Tag = styled.a`
   display: inline-block;

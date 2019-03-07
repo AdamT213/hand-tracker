@@ -3,7 +3,21 @@ import { connect } from 'react-redux';
 import TableName from './TableName'
 import { setCurrentTable } from '../../Actions/tableActions';
 import { InfoButton } from "./styles";
-import { Div } from "./styles";
+import styles from "styled-components";
+
+const Div = styles.div`
+background: #000000;
+color: #0d7c57;
+width: 50%;
+padding: 1%;
+margin: 5%;
+margin-bottom: 1%;
+border-style: inset;
+`;
+
+const DivContainer = styles.div` 
+  display: inline-block;
+`;
 
 export class Session extends Component {  
 
@@ -25,9 +39,9 @@ export class Session extends Component {
         <h3>Status: {this.props.Status ? 'Up'  : 'Down'}</h3>
         <h3>Amount: ${this.props.Amount}</h3>
         <h3>Tables:</h3>
-        <ul>
+        <DivContainer>
         {tables}
-        </ul>
+        </DivContainer>
       </Div>
       )
     }

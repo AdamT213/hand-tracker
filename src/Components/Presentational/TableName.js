@@ -15,15 +15,22 @@ const Div = styled.div`
 background: #f61408;
 color: #000000;
 display: inline-block;
+width: 99%;
 padding: 1%;
 border-style: inset;
+margin-bottom: 2%;
 `;
 
 const Divv = styled.div`
 	  display: inline-block;
 	  border-style: groove;
 	  border-color: green; 
+	  padding: 1%;
 	  margin-bottom: 1%;
+`;
+
+const Divvv = styled.div` 
+	  margin-bottom: 2%;
 `;
 
 const tags = props => {
@@ -40,7 +47,7 @@ export class TableName extends Component {
 	render() { 
     
 		return (   
-			<Div className= "TableName"> 
+			<Div> 
 				<h3>Buy-in: {this.props.buyin}</h3>
 				<h3>Capacity: {this.props.capacity}</h3>
 				<h3>Size: {this.props.size}</h3>

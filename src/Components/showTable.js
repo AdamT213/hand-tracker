@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { history } from '../App' ;
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import InProgressTable from './Presentational/InProgressTable';
 import Table from './Presentational/Table';
 import AddHand from './Forms/AddHand';
 import { leaveTable } from '../Actions/tableActions';
@@ -33,7 +34,7 @@ export class showTable extends Component {
          <div className="leftside">
          <EndButton id={this.props.table.id} onClick={this.handleClick}>Leave This Table</EndButton><br /><br />
          <AddTagsForm table={this.props.table} />
-        <Table id={this.props.table.id} buyin= {this.props.table.buyin} handCount={this.props.table.hands.length}
+        <InProgressTable id={this.props.table.id} buyin= {this.props.table.buyin} handCount={this.props.table.hands ? this.props.table.hands.length : 0}
         capacity={this.props.table.capacity} size={this.props.table.size} 
          amount= "That depends on you my son" hands={this.props.table.hands} />
         </div>

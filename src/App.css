@@ -11,6 +11,7 @@ a:hover {
 
 body {
   background: linear-gradient(to bottom right,#6b1616, #bf3333, #f61408);
+  font-family: 'Forum', cursive;
 }
 
 div { 

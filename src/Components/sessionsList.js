@@ -6,6 +6,16 @@ import InProgressSessionName from './Presentational/InProgressSessionName';
 import { setCurrentSession } from '../Actions/sessionActions';
 import { deleteSession } from '../Actions/sessionActions';
 import {InfoButton, EndButton} from "./Presentational/styles";
+import styles from "styled-components"; 
+
+const DivContainer = styles.div` 
+  display: inline-block;
+`;
+
+const CenteredDiv = styles.div` 
+  display: inline-block;
+  vertical-align: middle;
+`;
 
 class sessionsList extends Component { 
 
@@ -26,27 +36,27 @@ class sessionsList extends Component {
   render() {
 
     const sessions = this.props.sessions.map((sesh, index) => {
-      debugger;
       return sesh.isTermed ? 
-      ( <div className="small"><SessionName Id={sesh.id} Status={sesh.status} 
+      ( <CenteredDiv><SessionName Id={sesh.id} Status={sesh.status} 
       Minutes={sesh.duration} Amount= {sesh.amount} created_at={sesh.created_at}
-      key={index} tags={sesh.sessions_tags} /><br /><InfoButton id={sesh.id} onClick={this.handleClick}>
+      key={index} tags={sesh.sessions_tags} /><br />
+        <InfoButton id={sesh.id} onClick={this.handleClick}>
       See Info For This Session</InfoButton><br /><br />
-      <EndButton id={sesh.id} onClick={this.handleDelete}>Delete this Session</EndButton><br /><br /></div> ) : 
+      <EndButton id={sesh.id} onClick={this.handleDelete}>Delete this Session</EndButton><br /><br /></CenteredDiv> ) : 
 
-      ( <div className="small"><InProgressSessionName Id={sesh.id} created_at={sesh.created_at} tags={sesh.sessions_tags} key={index} /><br /><InfoButton id={sesh.id} onClick={this.handleClick}>See Info For This Session</InfoButton><br /><br />
-      <EndButton id={sesh.id} onClick={this.handleDelete}>Delete this Session</EndButton><br /><br /></div> )
+      ( <CenteredDiv><InProgressSessionName Id={sesh.id} created_at={sesh.created_at} tags={sesh.sessions_tags} key={index} /><br /><InfoButton id={sesh.id} onClick={this.handleClick}>See Info For This Session</InfoButton><br /><br />
+      <EndButton id={sesh.id} onClick={this.handleDelete}>Delete this Session</EndButton><br /><br /></CenteredDiv> )
     });
 
     return (
         <div className= "App">
         <Router>
-        <div className="container">
+        <DivContainer>
             <h2>Here are all of your Past Sessions</h2>
-          <ul>
+          <DivContainer>
             {sessions}
-           </ul>
-          </div>
+           </DivContainer>
+          </DivContainer>
           </Router>
         </div>
     )

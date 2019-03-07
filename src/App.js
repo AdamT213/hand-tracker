@@ -58,8 +58,6 @@ class App extends Component {
 	}
 
 	render(){
-
-		document.title = "Wilkommen";
     
 		return (
 			<div className="App">

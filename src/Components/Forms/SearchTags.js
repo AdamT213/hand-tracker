@@ -11,6 +11,22 @@ const Input = styled.input `
 export function SearchTags() {
 
 	const [state, setState] = useState({ tags: "Search for hands, sessions, and tables by tag"});
+
+	const handleFocus = event => { 
+		const {name} = event.target;
+		setState({
+			[name]: "",
+		});
+	};
+
+	const handleBlur = event => { 
+		const {name} = event.target;
+		setState({
+			[name]: "Search for hands, sessions, and tables by tag",
+		});
+	};
+
+
   
 	const handleOnChange = event => {
 		const { value, name } = event.target;
@@ -40,6 +56,8 @@ export function SearchTags() {
 											className="form-control"
 											name="tags"
 											value={state.tags}
+											onFocus={handleFocus}
+											onBlur={handleBlur}
 											onChange={handleOnChange} />
 									</div><br />
 								</div>

@@ -4,24 +4,31 @@ import { saveTableTags } from '../../Actions/tableActions';
 import { saveSessionTags } from '../../Actions/sessionActions';
 import { InfoButton } from "../Presentational/styles";
 
+
 export class AddTagsForm extends Component {
   
     constructor(props) {
       super(props)
+      let initialState;
       if (this.props.table && this.props.table.tags){
-        this.state = { 
-          tags: this.props.table.tags.map(tag => tag.tag_name),
-        }
+        initialState = {tags: this.props.table.tags.map(tag => tag.tag_name, ),}
       }
       else if (this.props.session && this.props.session.tags){
-        this.state = { 
-          tags: this.props.session.tags.map(tag => tag.tag_name),
-        }
+        initialState = {tags: this.props.session.tags.map(tag => tag.tag_name, ),}
       } else { 
-        this.state = { 
-          tags: "No tags yet",
-        }
+        initialState = {tags: "No tags yet",}
       }
+      this.state = {
+        initial: initialState.tags,
+        tags: initialState.tags,
+      }
+    }
+
+    handleOnFocus = event => { 
+      const { name } = event.target;
+      this.setState({
+        [name]: "",
+      });
     }
   
     handleOnChange = event => {
@@ -32,8 +39,9 @@ export class AddTagsForm extends Component {
     }
   
     handleOnSubmit = event => { 
-      const tags = this.state.tags.split(",");
       event.preventDefault(); 
+      console.log(this.state.tags);
+      const tags = this.state.tags.split(",");
       if (this.props.table) {
         const table_id = this.props.table.id;
         this.props.saveTableTags(tags, table_id);  
@@ -65,6 +73,7 @@ export class AddTagsForm extends Component {
                             className="form-control"
                             name="tags"
                             value={this.state.tags}
+                            onFocus={this.handleOnFocus}
                             onChange={this.handleOnChange}
                           />
                         </div>
