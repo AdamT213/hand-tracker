@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import HandName from './HandName';
 import { setCurrentHand } from '../../Actions/handActions';
 import { InfoButton } from "./styles";
+import { Div } from "./styles";
 
 export class Table extends Component {
 
@@ -22,7 +23,7 @@ export class Table extends Component {
       <InfoButton id={hand.id} onClick={this.handleClick}>View Hand Details</InfoButton></div>}) : <p>No Hands Yet</p>;
     
       return (
-        <div className= "Table">
+        <Div>
           <h2>Table Stats</h2>
           <h3>Hand Count: {this.props.handCount}</h3>
           <h3>Buy-in: {this.props.buyin}</h3>
@@ -33,7 +34,7 @@ export class Table extends Component {
           <ul>
           {hands}
         </ul>
-        </div>
+        </Div>
       )
      }
   }

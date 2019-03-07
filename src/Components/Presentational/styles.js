@@ -23,3 +23,11 @@ export const EndButton = styled.button `
     background: #f61408;
   }
 `;
+
+export const Div = styled.div` 
+background: #000000;
+color: #0d7c57;
+display: inline-block;
+padding: 1%;
+border-style: inset;
+`;

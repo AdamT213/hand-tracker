@@ -1,5 +1,6 @@
 import React  from "react"; 
 import styled from "styled-components";
+import { Div } from "./styles";
 
 const Tag = styled.a`
 display: inline-block;
@@ -27,14 +28,14 @@ function  InProgressSessionName(props) {
 	//shows just the basic info for a session still in progress
     
 	return (
-		<div className= "clearfix">
+		<Div>
 			<h3>Session in Progress</h3>
 			<h3>Date: {date(props)}</h3>
 			<h3>Tags</h3>
 			<div>
 				{tags(props)}
 			</div>
-		</div>
+		</Div>
 	);
 }
 

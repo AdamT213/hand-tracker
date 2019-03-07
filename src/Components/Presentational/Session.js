@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import TableName from './TableName'
 import { setCurrentTable } from '../../Actions/tableActions';
 import { InfoButton } from "./styles";
+import { Div } from "./styles";
 
 export class Session extends Component {  
 
@@ -19,7 +20,7 @@ export class Session extends Component {
        </div>}) : null
 
      return (
-      <div className= "Session">
+      <Div>
         <h3>Minutes: {this.props.Minutes}</h3>
         <h3>Status: {this.props.Status ? 'Up'  : 'Down'}</h3>
         <h3>Amount: ${this.props.Amount}</h3>
@@ -27,7 +28,7 @@ export class Session extends Component {
         <ul>
         {tables}
         </ul>
-      </div>
+      </Div>
       )
     }
   }

@@ -11,7 +11,15 @@ const Tag = styled.a`
 	  }
 `;
 
-const Div = styled.div`
+const Div = styled.div` 
+background: #f61408;
+color: #000000;
+display: inline-block;
+padding: 1%;
+border-style: inset;
+`;
+
+const Divv = styled.div`
 	  display: inline-block;
 	  border-style: groove;
 	  border-color: green; 
@@ -32,15 +40,15 @@ export class TableName extends Component {
 	render() { 
     
 		return (   
-			<div className= "TableName"> 
+			<Div className= "TableName"> 
 				<h3>Buy-in: {this.props.buyin}</h3>
 				<h3>Capacity: {this.props.capacity}</h3>
 				<h3>Size: {this.props.size}</h3>
 				<h3>Tags</h3>
-				<Div>
+				<Divv>
 					{tags(this.props)}
-				</Div>
-			</div>
+				</Divv>
+			</Div>
 		);
 	}
 }

@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { InfoButton } from "./styles";
 import TableName from "./TableName";
 import { setCurrentTable } from "../../Actions/tableActions";
+import { Div } from "./styles";
+
+
 
 function  InProgressSession(props) {
 	
@@ -20,14 +23,14 @@ function  InProgressSession(props) {
 		</div>;}) : null;
     
 	return (
-		<div className= "SessionName"> 
+		<Div>
 			<h3>Session in progress</h3>
 			<h3>Minutes: {props.Minutes}</h3>
 			<h3>Tables:</h3>
 			<ul>
 				{tables}
 			</ul>
-		</div>
+		</Div>
 	);
 }
 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'; 
 import styled from "styled-components";
+import { Div } from "./styles";
+
 
 const Tag = styled.a`
 	display: inline-block;
@@ -28,7 +30,7 @@ export class SessionName extends Component {
     
 	render() {
 		return (
-			<div className= "SessionName"> 
+			<Div> 
 				<h3>Date: {date(this.props)}</h3>
 				<h3>Minutes: {this.props.Minutes}</h3>
 				<h3>Status: {this.props.Status? "Up" : "Down"}</h3>
@@ -37,7 +39,7 @@ export class SessionName extends Component {
 				<div>
 					{tags(this.props)}
 				</div>
-			</div>
+			</Div>
 		);
 	}
 }

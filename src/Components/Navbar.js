@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getSessions } from '../Actions/sessionActions'
+import styles from "styled-components";
+
+const Div = styles.div` 
+background: #ffffff;
+margin-bottom: 1%;
+padding: 1%;
+border-bottom-style: solid;
+`;
 
 class NavBar extends Component {
 
@@ -13,7 +21,7 @@ class NavBar extends Component {
   render() {
 
     return (
-      <div className="navbar">
+      <Div>
         <NavLink className="link"
         to="/"
         exact
@@ -22,7 +30,7 @@ class NavBar extends Component {
       to= '/sessions/index' 
       onClick={this.handleOnClick}
       >See your Past Sessions</NavLink>
-      </div>
+      </Div>
     );
   }
 };

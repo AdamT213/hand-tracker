@@ -9,6 +9,10 @@ a:hover {
   text-align: center;
 }
 
+body {
+  background: linear-gradient(to bottom right,#6b1616, #bf3333, #f61408);
+}
+
 div { 
   display: block;
   width: auto;
@@ -35,7 +39,7 @@ h4 {
   font-size: .5 em;
 } 
 
-.navbar .link {
+.link {
   padding-left:10px;
   padding-right:10px;
 } 
