@@ -54,7 +54,7 @@ export class Home extends Component {
           <SearchTags />
           <Div>
             <h3>Last 30 Days</h3>
-          <Last30Days 
+          <Last30Days
           data={this.props.data}
           height={200}
           selectX={datum => new Date(datum.date)}
