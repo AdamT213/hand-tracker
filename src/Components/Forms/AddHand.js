@@ -28,11 +28,45 @@ export class AddHand extends Component {
     }
   }
 
+  componentDidMount() { 
+    this.refs.content.elements[0].focus();
+  }
+
+  handleKeyPress = event => {
+    const form = event.target.form;
+    const index = Array.prototype.indexOf.call(form, event.target);
+    let next = form.elements[index + 1];
+    let last = form.elements[index - 1]; 
+    switch (event.keyCode) {
+    case 39: 
+      event.preventDefault();
+      if (next && next.tagName === "INPUT" || next.tagName === "TEXTAREA" || next.tagName === "SELECT") {
+        form.elements[index + 1].focus();
+      }
+      break;
+    case 37:
+        event.preventDefault();
+        if (last && last.tagName === "INPUT" || last.tagName === "TEXTAREA" || last.tagName === "SELECT") { 
+          form.elements[index - 1].focus();
+        }
+        break;
+    case 16:
+      if (index < 13) { 
+        form.elements[13].focus();
+      }
+      break;
+    }
+  }
+
   handleOnChange = event => {
     const { value, name } = event.target;
     this.setState({
       [name]: value,
     });
+  }
+
+  handleChange = event => {
+    this.setState({value: event.target.value});
   }
 
   handleOnSubmit = event => { 
@@ -77,27 +111,30 @@ export class AddHand extends Component {
 
       return (
         
-        <form onSubmit={this.handleOnSubmit}>
+        <form ref="content" onSubmit={this.handleOnSubmit}>
+         <div>
+              <label htmlFor="position">Position</label>
+              <div>
+              <select value={this.state.position} onChange={this.handleChange} onKeyDown={this.handleKeyPress}>
+                <option value="Button">Button</option>
+                <option value="SB">SB</option>
+                <option value="BB">BB</option>
+                <option value="UTG">UTG</option>
+                <option value="MP">MP</option>
+                <option value="Hi Jack">Hi Jack</option>
+                <option value="CO">CO</option>
+              </select>
+              </div>
+              </div>
             <div>
               <label htmlFor="holeCards">What were your hole cards?</label>
               <div>
                 <input
-                className="form-control"
                 type="text"
                 name="holeCards"
                 value={this.state.holeCards}
                 onChange={this.handleOnChange}
-              />
-              </div>
-              </div>
-            <div>
-              <label htmlFor="position">Position</label>
-              <div>
-                <input
-                className="form-control"
-                name="position"
-                value={this.state.position}
-                onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -105,10 +142,10 @@ export class AddHand extends Component {
               <label htmlFor="preFlopRaise">Preflop Raise</label>
               <div>
                 <textarea
-                className="form-control"
                 name="preFlopRaise"
                 value={this.state.preFlopRaise}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -116,11 +153,11 @@ export class AddHand extends Component {
               <label htmlFor="playersToFlop">How many players saw the flop?</label>
               <div>
               <input
-                className="form-control"
                 type="text"
                 name="playersToFlop"
                 value={this.state.playersToFlop}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -128,11 +165,11 @@ export class AddHand extends Component {
               <label htmlFor="flop">What was the flop?</label>
               <div>
                 <input
-                className="form-control"
                 type="text"
                 name="flop"
                 value={this.state.flop}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -140,11 +177,11 @@ export class AddHand extends Component {
               <label htmlFor="flopBet">Flop Bet</label>
               <div>
                 <textarea
-                className="form-control"
                 type="text"
                 name="flopBet"
                 value={this.state.flopBet}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -152,11 +189,11 @@ export class AddHand extends Component {
               <label htmlFor="playersToTurn">How many players saw the turn?</label>
               <div>
               <input
-                className="form-control"
                 type="text"
                 name="playersToTurn"
                 value={this.state.playersToTurn}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -164,11 +201,11 @@ export class AddHand extends Component {
               <label htmlFor="turn">What was the turn?</label>
               <div>
                 <input
-                className="form-control"
                 type="text"
                 name="turn"
                 value={this.state.turn}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -176,11 +213,11 @@ export class AddHand extends Component {
               <label htmlFor="turnBet">Turn Bet</label>
               <div>
                 <textarea
-                className="form-control"
                 type="text"
                 name="turnBet"
                 value={this.state.turnBet}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -188,11 +225,11 @@ export class AddHand extends Component {
               <label htmlFor="playersToRiver">How many players saw the river?</label>
               <div>
               <input
-                className="form-control"
                 type="text"
                 name="playersToRiver"
                 value={this.state.playersToRiver}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -200,11 +237,11 @@ export class AddHand extends Component {
               <label htmlFor="river">What was the river?</label>
               <div>
                 <input
-                className="form-control"
                 type="text"
                 name="river"
                 value={this.state.river}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -212,11 +249,11 @@ export class AddHand extends Component {
               <label htmlFor="riverBet">River Bet</label>
               <div>
                 <textarea
-                className="form-control"
                 type="text"
                 name="riverBet"
                 value={this.state.riverBet}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -224,35 +261,32 @@ export class AddHand extends Component {
               <label htmlFor="playersToShowdown">How many players went to a showdown?</label>
               <div>
               <input
-                className="form-control"
                 type="text"
                 name="playersToShowdown"
                 value={this.state.playersToShowdown}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
             <div>
-              <label htmlFor="status">Did you win the hand(Y/N)</label>
+              <label htmlFor="status">Did you win the hand?</label>
               <div>
-                <input
-                className="form-control"
-                type="text"
-                name="status"
-                value={this.state.status}
-                onChange={this.handleOnChange}
-              />
+              <select value={this.state.status} onChange={this.handleChange} onKeyDown={this.handleKeyPress}>
+                <option value="Y">Yes</option>
+                <option value="N">No</option>
+              </select>
               </div>
               </div>
             <div>
               <label htmlFor="money_invested">How much money did you put in?</label>
               <div>
               <input
-                className="form-control"
                 type="text"
                 name="money_invested"
                 value={this.state.money_invested}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -260,11 +294,11 @@ export class AddHand extends Component {
               <label htmlFor="potSize">How big was the pot?</label>
               <div>
                 <input
-                className="form-control"
                 type="text"
                 name="potSize"
                 value={this.state.potSize}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
@@ -272,11 +306,11 @@ export class AddHand extends Component {
               <label htmlFor="tags">How would you like to tag this hand? (comma-sep list)</label>
               <div>
               <input
-                className="form-control"
                 type="text"
                 name="tags"
                 value={this.state.tags}
                 onChange={this.handleOnChange}
+                onKeyDown={this.handleKeyPress}
               />
               </div>
               </div>
