@@ -51,6 +51,7 @@ export class AddHand extends Component {
         }
         break;
     case 18:
+      event.preventDefault();
       if (index < 13) { 
         form.elements[13].focus();
       }
@@ -74,7 +75,6 @@ export class AddHand extends Component {
   }
 
   handleOnSubmit = event => { 
-    debugger;
     event.preventDefault();
     const hand = {position: this.state.position, preFlopRaise: this.state.preFlopRaise, 
       flopBet: this.state.flopBet, turnBet: this.state.turnBet, riverBet: this.state.riverBet, 
@@ -92,22 +92,22 @@ export class AddHand extends Component {
       hand.table_id = this.props.table.id;
       this.props.saveHand(hand, tags);
       this.setState({
-        position: '',
-        preFlopRaise: '',
-        flopBet: '',
-        turnBet: '',
-        riverBet: '',
-        playersToFlop: '', 
-        playersToTurn: '',
-        playersToRiver: '',
-        playersToShowdown: '', 
-        status: '',
-        money_invested: '',
-        potSize: '',
-        holeCards: '',
-        flop: '',
-        turn: '',
-        river: '', 
+        position: null,
+        preFlopRaise: null,
+        flopBet: null,
+        turnBet: null,
+        riverBet: null,
+        playersToFlop: null, 
+        playersToTurn: null,
+        playersToRiver: null,
+        playersToShowdown: null, 
+        status: null,
+        money_invested: null,
+        potSize: null,
+        holeCards: null,
+        flop: null,
+        turn: null,
+        river: null, 
         tags: []
     });
   }
