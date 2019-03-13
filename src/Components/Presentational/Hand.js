@@ -34,7 +34,7 @@ export class Hand extends Component {
 				<h3>riverBet: {this.props.riverBet}</h3>
 				<h3>playersToShowdown: {this.props.playersToShowdown}</h3>
 				<h3>potSize: {this.props.potSize}</h3>
-				<h3>status: {this.props.status}</h3>
+				<h3>status: {this.props.status ? "Won" : "Lost"}</h3>
 				<h3>tags</h3>
 				<div>
 					{tags}

@@ -50,7 +50,7 @@ export class AddHand extends Component {
           form.elements[index - 1].focus();
         }
         break;
-    case 16:
+    case 18:
       if (index < 13) { 
         form.elements[13].focus();
       }
@@ -65,11 +65,16 @@ export class AddHand extends Component {
     });
   }
 
-  handleChange = event => {
-    this.setState({value: event.target.value});
+  handlePositionChange = event => {
+    this.setState({position: event.target.value});
+  }
+
+  handleStatusChange = event => {
+    this.setState({status: event.target.value});
   }
 
   handleOnSubmit = event => { 
+    debugger;
     event.preventDefault();
     const hand = {position: this.state.position, preFlopRaise: this.state.preFlopRaise, 
       flopBet: this.state.flopBet, turnBet: this.state.turnBet, riverBet: this.state.riverBet, 
@@ -115,7 +120,7 @@ export class AddHand extends Component {
          <div>
               <label htmlFor="position">Position</label>
               <div>
-              <select value={this.state.position} onChange={this.handleChange} onKeyDown={this.handleKeyPress}>
+              <select value={this.state.position} onChange={this.handlePositionChange} onKeyDown={this.handleKeyPress}>
                 <option value="Button">Button</option>
                 <option value="SB">SB</option>
                 <option value="BB">BB</option>
@@ -272,9 +277,9 @@ export class AddHand extends Component {
             <div>
               <label htmlFor="status">Did you win the hand?</label>
               <div>
-              <select value={this.state.status} onChange={this.handleChange} onKeyDown={this.handleKeyPress}>
-                <option value="Y">Yes</option>
-                <option value="N">No</option>
+              <select value={this.state.status}  onChange={this.handleStatusChange} onKeyDown={this.handleKeyPress}>
+                <option value={true}>Yes</option>
+                <option value={false}>No</option>
               </select>
               </div>
               </div>
